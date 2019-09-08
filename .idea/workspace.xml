@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/common/dbConnect.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/dbConnect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/AcademicClassLevelsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/ClassController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/ClassStreamsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/LotDescriptionsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/LotsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fee_management/CarryForwardController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fee_management/FeeController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/fee_management/InstallmentsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/students_management/StudentTypesController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/students_management/StudentsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/term_management/ActualWeeksController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/term_management/TermController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/term_management/TermIterationsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/term_management/WeekIterationsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users_management/RolesController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users_management/UserRolesController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users_management/UsersController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcare.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/AcademicClassLevelsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/ClassModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/ClassStreamsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/LotDescriptionsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/LotsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/fee_management/CarryForwardModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/fee_management/FeeModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/fee_management/InstallmentsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/students_management/StudentTypesModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/students_management/StudentsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/term_management/ActualWeeksModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/term_management/TermIterationsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/term_management/TermModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/term_management/WeekIterationsModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users_management/RolesModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users_management/UserRolesModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users_management/UsersModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/AcademicClassLevelsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/ClassRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/ClassStreamsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/LotDescriptionsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/LotsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/fee_management/CarryForwardRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/fee_management/FeeRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/fee_management/InstallmentsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/students_management/StudentTypesRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/students_management/StudentsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/term_management/ActualWeeksRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/term_management/TermIterationsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/term_management/TermRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/term_management/WeekIterationsRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users_management/RolesRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users_management/UserRolesRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users_management/UsersRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users_management/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users_management/login_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waondo.sql" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1QYPepYuNvmxt5u2yiveZqB6DMQ" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.index.js">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="mcare" type="NodeJSConfigurationType" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.mcare" />
+      <item itemvalue="Node.js.index.js" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="" />
+      <created>1541160803241</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541160803241</updated>
+      <workItem from="1541163407481" duration="11050000" />
+      <workItem from="1541181124171" duration="3590000" />
+      <workItem from="1541226417649" duration="12027000" />
+      <workItem from="1541248677116" duration="3677000" />
+      <workItem from="1541304369299" duration="3794000" />
+      <workItem from="1541322477413" duration="1325000" />
+      <workItem from="1541361053239" duration="964000" />
+      <workItem from="1541394815692" duration="3584000" />
+      <workItem from="1567944658448" duration="1048000" />
+      <workItem from="1567946655874" duration="2911000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
