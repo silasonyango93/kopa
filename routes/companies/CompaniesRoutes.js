@@ -1,5 +1,5 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the company_branches table's route class.
+This class is the companies table's route class.
 It is initialized at the "Index.js" and is able to recieve
 calls from the client and passes the calls down to the 
 "CompaniesController" class
@@ -16,7 +16,7 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.post("/add_company_branches", urlencodedParser, function(
+router.post("/add_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -40,7 +40,7 @@ router.post("/add_company_branches", urlencodedParser, function(
   );
 });
 
-router.post("/get_all_company_branches", urlencodedParser, function(
+router.post("/get_all_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -58,7 +58,7 @@ router.post("/get_all_company_branches", urlencodedParser, function(
   );
 });
 
-router.post("/get_specific_company_branches", urlencodedParser, function(
+router.post("/get_specific_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -80,7 +80,7 @@ router.post("/get_specific_company_branches", urlencodedParser, function(
   );
 });
 
-router.post("/update_company_branches", urlencodedParser, function(
+router.post("/update_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -104,7 +104,7 @@ router.post("/update_company_branches", urlencodedParser, function(
   );
 });
 
-router.post("/update_individual_company_branches", urlencodedParser, function(
+router.post("/update_individual_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -135,7 +135,7 @@ router.post("/update_individual_company_branches", urlencodedParser, function(
   );
 });
 
-router.post("/delete_individual_company_branches", urlencodedParser, function(
+router.post("/delete_individual_companies", urlencodedParser, function(
   request,
   response
 ) {
@@ -167,7 +167,7 @@ router.post("/delete_individual_company_branches", urlencodedParser, function(
 });
 
 router.post(
-  "/get_number_of_company_branches_records",
+  "/get_number_of_companies_records",
   urlencodedParser,
   function(request, response) {
     var column_name = request.body.column_name;
@@ -192,7 +192,7 @@ router.post(
   }
 );
 
-router.post("/company_branches_user_specific_query", urlencodedParser, function(
+router.post("/companies_user_specific_query", urlencodedParser, function(
   request,
   response
 ) {

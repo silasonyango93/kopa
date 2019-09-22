@@ -9,7 +9,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const CompanyClientsController = require("../../controllers/companies/CompanyClientsController.js");
+const CompanyClientsController = require("../../controllers/system_clients/CompanyClientsController.js");
 
 //Middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {

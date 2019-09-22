@@ -4,7 +4,7 @@ It receives calls from the "CompanyClientsRoutes" class and
 passes the calls down to the "CompanyClientsModel" class
 */
 
-const CompanyClientsModel = require("../../models/companies/CompanyClientsModel.js");
+const CompanyClientsModel = require("../../models/system_clients/CompanyClientsModel.js");
 
 module.exports = class CompanyClientsController {
   constructor() {}

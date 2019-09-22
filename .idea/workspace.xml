@@ -2,63 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/common/dbConnect.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/dbConnect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/AcademicClassLevelsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/ClassController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/ClassStreamsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/LotDescriptionsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/classroom_configurations/LotsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/fee_management/CarryForwardController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/fee_management/FeeController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/fee_management/InstallmentsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/students_management/StudentTypesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/students_management/StudentsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/term_management/ActualWeeksController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/term_management/TermController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/term_management/TermIterationsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/term_management/WeekIterationsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users_management/RolesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users_management/UserRolesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users_management/UsersController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcare.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/AcademicClassLevelsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/ClassModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/ClassStreamsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/LotDescriptionsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom_configurations/LotsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/fee_management/CarryForwardModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/fee_management/FeeModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/fee_management/InstallmentsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/students_management/StudentTypesModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/students_management/StudentsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/term_management/ActualWeeksModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/term_management/TermIterationsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/term_management/TermModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/term_management/WeekIterationsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users_management/RolesModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users_management/UserRolesModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users_management/UsersModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/AcademicClassLevelsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/ClassRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/ClassStreamsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/LotDescriptionsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/classroom_configurations/LotsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/fee_management/CarryForwardRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/fee_management/FeeRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/fee_management/InstallmentsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/students_management/StudentTypesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/students_management/StudentsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/term_management/ActualWeeksRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/term_management/TermIterationsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/term_management/TermRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/term_management/WeekIterationsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users_management/RolesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users_management/UserRolesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users_management/UsersRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users_management/form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users_management/login_form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/waondo.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +29,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes/system_clients" />
+      <recent name="$PROJECT_DIR$/controllers/system_clients" />
+      <recent name="$PROJECT_DIR$/models/system_clients" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -133,7 +85,8 @@
       <workItem from="1541361053239" duration="964000" />
       <workItem from="1541394815692" duration="3584000" />
       <workItem from="1567944658448" duration="1048000" />
-      <workItem from="1567946655874" duration="2911000" />
+      <workItem from="1567946655874" duration="3896000" />
+      <workItem from="1569087619376" duration="8308000" />
     </task>
     <servers />
   </component>
