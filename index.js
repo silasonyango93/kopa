@@ -82,6 +82,15 @@ app.use(require("./routes/loan_management/LoanRepaymentInstallmentsRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Common Utilities*/
 
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start System Admin*/
+
+app.use(require("./routes/system_admin/SystemAdminRoutes.js"));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End System Admin*/
+
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send("Something broke!");

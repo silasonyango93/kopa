@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/kopa.iml" filepath="$PROJECT_DIR$/.idea/kopa.iml" />
       <module fileurl="file://$PROJECT_DIR$/mcare.iml" filepath="$PROJECT_DIR$/mcare.iml" />
     </modules>
   </component>
