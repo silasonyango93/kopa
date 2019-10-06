@@ -22,7 +22,7 @@ router.post("/add_company_ownership_groups", urlencodedParser, function(
 ) {
   var jsonObject_ = {
     CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId,
-    CompanyName: request.body.CompanyName
+    OwnershipGroupName: request.body.OwnershipGroupName
   };
 
   var myPromise = CompanyOwnershipGroupsController.insert(jsonObject_);

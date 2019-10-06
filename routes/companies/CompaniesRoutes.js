@@ -20,10 +20,12 @@ router.post("/add_companies", urlencodedParser, function(
   request,
   response
 ) {
+  var date = new Date();
+  date.setHours(date.getHours() + 0);
   var jsonObject_ = {
-    CompanyId: request.body.CompanyId,
-    BranchName: request.body.BranchName,
-    BranchPhysicalAddress: request.body.BranchPhysicalAddress
+    CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId,
+    CompanyName: request.body.CompanyName,
+    CompanyRegistrationDate: date
   };
 
   var myPromise = CompaniesController.insert(jsonObject_);
