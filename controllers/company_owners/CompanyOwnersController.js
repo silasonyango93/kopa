@@ -28,9 +28,9 @@ module.exports = class CompanyOwnersController {
   static insert_users(jsonObject_) {
     return new Promise(function(resolve, reject) {
       //var userAlreadyRegisteredResult;
-      var TableName = "users";
-      var ColumnName = "Email";
-      var value_ = jsonObject_.Email;
+      var TableName = "company_owners";
+      var ColumnName = "OwnerEmail";
+      var value_ = jsonObject_.OwnerEmail;
 
       var myModelMasterPromise = ModelMaster.selectSpecific(
         TableName,
@@ -67,7 +67,7 @@ module.exports = class CompanyOwnersController {
               }
             );
           } else {
-            var myResponse = "A user already exists by this staff number";
+            var myResponse = "A user already exists by this email";
             resolve(myResponse);
           }
         },

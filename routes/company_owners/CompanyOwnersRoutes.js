@@ -18,7 +18,7 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.post("/user_registration", urlencodedParser, function(
+router.post("/company_owner_registration", urlencodedParser, function(
   request,
   response
 ) {
@@ -26,10 +26,15 @@ router.post("/user_registration", urlencodedParser, function(
   date.setHours(date.getHours() + 0);
 
   var jsonObject_ = {
-    Name: request.body.Name,
-    Email: request.body.Email,
+    OwnerFirstName: request.body.OwnerFirstName,
+    OwnerMiddleName: request.body.OwnerMiddleName,
+    OwnerSurname: request.body.OwnerSurname,
+    OwnerNationalId: request.body.OwnerNationalId,
+    OwnerPhoneNumber: request.body.OwnerPhoneNumber,
+    OwnerEmail: request.body.OwnerEmail,
+    GenderId: request.body.GenderId,
     Password: request.body.Password,
-    RegisteredDate: date
+    OwnerRegisteredDate: date
   };
 
   var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.insert_users(
@@ -77,7 +82,10 @@ router.post("/user_login", urlencodedParser, function(request, response) {
   );
 });
 
-router.post("/get_all_users", urlencodedParser, function(request, response) {
+router.post("/get_all_company_owners", urlencodedParser, function(
+  request,
+  response
+) {
   var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.get_all_users();
 
   myCompanyOwnersControllerObjectPromise.then(
