@@ -1,143 +1,159 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-
-This class is the "company_owners" table's model
-class.It receives any CRUD operation
-requests and hands the over to class
+This class is the "fee" table's model
+class.It receives any CRUD operation 
+requests and hands the over to class 
 ModelMaster.It creates an instance of class
 ModelMaster then passes parameters to its
 functions.
-
 */
 
 const ModelMaster = require("../ModelMaster.js");
 const TableName = "ownership_groups_company_owners_rship";
 
 module.exports = class OwnershipGroupsCompanyOwnersRshipModel {
-    constructor() {}
+  constructor() {}
 
-    static insert_users(jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.insert(TableName, jsonObject_);
+  static insert(jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.insert(TableName, jsonObject_);
 
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_all_users() {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.selectAll(TableName);
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_all_records() {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.selectAll(TableName);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_specific_users(ColumnName, value_) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.selectSpecific(
-                TableName,
-                ColumnName,
-                value_
-            );
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_specific_records(ColumnName, value_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.selectSpecific(TableName, ColumnName, value_);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static batch_users_update(jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.batch_update(
-                TableName,
-                jsonObject_
-            );
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static batch_update(jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.batch_update(TableName, jsonObject_);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static individual_users_update(ColumnName, value_, jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.individual_update(
-                TableName,
-                jsonObject_,
-                ColumnName,
-                value_
-            );
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static individual_record_update(ColumnName, value_, jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.individual_update(
+        TableName,
+        jsonObject_,
+        ColumnName,
+        value_
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static delete_users_record(ColumnName, value_) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.delete(
-                TableName,
-                ColumnName,
-                value_
-            );
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static delete_user_specic_record(
+    ColumnName,
+    value_,
+    UserIdColumnName,
+    UserId
+  ) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.delete(
+        TableName,
+        ColumnName,
+        value_,
+        UserIdColumnName,
+        UserId
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_staff_members_with_a_specific_quality(
-        TableTwo,
-        JoiningKey,
-        SearchColumn,
-        SearchValue
-    ) {
-        return new Promise(function(resolve, reject) {
-            var myModelMasterPromise = ModelMaster.two_table_inner_join(
-                TableName,
-                TableTwo,
-                JoiningKey,
-                SearchColumn,
-                SearchValue
-            );
-            myModelMasterPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_number_of_records(ColumnName, value_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.get_number_of_records(
+        TableName,
+        ColumnName,
+        value_
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
+
+  static user_specific_select_query(
+    ColumnName,
+    value_,
+    UserIdColumnName,
+    UserId
+  ) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.user_specific_select_query(
+        TableName,
+        ColumnName,
+        value_,
+        UserIdColumnName,
+        UserId
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

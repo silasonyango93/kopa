@@ -50,6 +50,9 @@ app.use(require("./routes/company_owners/CompanyOwnersRoutes.js"));
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start company ownership groups Management*/
 
 app.use(require("./routes/ownership_groups/CompanyOwnershipGroupsRoutes.js"));
+app.use(
+  require("./routes/company_owners/OwnershipGroupsCompanyOwnersRshipRoutes.js")
+);
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End User Management*/
 
@@ -61,9 +64,6 @@ app.use(require("./routes/system_clients/CompanyClientsRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End User Management*/
 
-
-
-
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start Common Utilities*/
 
 app.use(require("./routes/common_utilities/GenderRoutes.js"));
@@ -72,18 +72,12 @@ app.use(require("./routes/common_utilities/EmploymentCategoriesRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Common Utilities*/
 
-
-
-
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start Common Utilities*/
 
 app.use(require("./routes/loan_management/LoanApplicationRoutes.js"));
 app.use(require("./routes/loan_management/LoanRepaymentInstallmentsRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Common Utilities*/
-
-
-
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start System Admin*/
 
