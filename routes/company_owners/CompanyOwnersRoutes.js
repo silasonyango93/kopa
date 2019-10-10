@@ -61,12 +61,14 @@ router.get("/admin_login", function(req, res) {
   res.sendFile(__dirname + "/" + "login_form.html");
 });
 
-router.post("/user_login", urlencodedParser, function(request, response) {
+router.post("/company_owner_login", urlencodedParser, function(
+  request,
+  response
+) {
   var jsonObject_ = {
-    AteemtedEmail: request.body.AteemtedEmail,
+    AttemptedEmail: request.body.AttemptedEmail,
     AttemptedPassword: request.body.AttemptedPassword
   };
-
   var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.user_login(
     jsonObject_
   );

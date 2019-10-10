@@ -80,10 +80,9 @@ module.exports = class CompanyOwnersController {
 
   static user_login(jsonObject_) {
     return new Promise(function(resolve, reject) {
-      var TableName = "users";
-      var SearchColumn = "Email";
-      var SearchValue = jsonObject_.AteemtedEmail;
-
+      var TableName = "company_owners";
+      var SearchColumn = "OwnerEmail";
+      var SearchValue = jsonObject_.AttemptedEmail;
       var myModelMasterPromise = ModelMaster.selectSpecific(
         TableName,
         SearchColumn,
@@ -111,8 +110,15 @@ module.exports = class CompanyOwnersController {
             ) {
               var response_object = {
                 error: false,
-                UserId: userExistsResult[0].UserId,
-                Name: userExistsResult[0].Name
+                CompanyOwnerId: userExistsResult[0].CompanyOwnerId,
+                OwnerFirstName: userExistsResult[0].OwnerFirstName,
+                OwnerMiddleName: userExistsResult[0].OwnerMiddleName,
+                OwnerSurname: userExistsResult[0].OwnerSurname,
+                OwnerNationalId: userExistsResult[0].OwnerNationalId,
+                OwnerPhoneNumber: userExistsResult[0].OwnerPhoneNumber,
+                OwnerEmail: userExistsResult[0].OwnerEmail,
+                OwnerRegisteredDate: userExistsResult[0].OwnerRegisteredDate,
+                GenderId: userExistsResult[0].GenderId
               };
             } else {
               var error_msg = "Login failed";
