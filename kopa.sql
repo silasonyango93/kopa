@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 08, 2019 at 01:29 PM
--- Server version: 5.7.26-0ubuntu0.16.04.1
--- PHP Version: 7.0.33-0ubuntu0.16.04.5
+-- Generation Time: Oct 11, 2019 at 01:27 PM
+-- Server version: 5.7.27-0ubuntu0.16.04.1
+-- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,8 +29,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `companies` (
   `CompanyId` int(11) NOT NULL,
   `CompanyOwnershipGroupId` int(11) NOT NULL,
-  `CompanyName` varchar(9000) NOT NULL
+  `CompanyName` varchar(9000) NOT NULL,
+  `CompanyRegistrationDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`CompanyId`, `CompanyOwnershipGroupId`, `CompanyName`, `CompanyRegistrationDate`) VALUES
+(1, 7, 'Safaricom', '2019-10-06 20:07:54');
 
 -- --------------------------------------------------------
 
@@ -44,6 +52,13 @@ CREATE TABLE `company_branches` (
   `BranchName` varchar(9000) NOT NULL,
   `BranchPhysicalAddress` varchar(9000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company_branches`
+--
+
+INSERT INTO `company_branches` (`CompanyBranchId`, `CompanyId`, `BranchName`, `BranchPhysicalAddress`) VALUES
+(1, 1, 'Westlands Branch', 'Westlands');
 
 -- --------------------------------------------------------
 
@@ -81,8 +96,16 @@ CREATE TABLE `company_owners` (
   `OwnerEmail` varchar(500) NOT NULL,
   `GenderId` int(11) NOT NULL,
   `EncryptedPassword` varchar(9000) NOT NULL,
-  `Salt` varchar(9000) NOT NULL
+  `Salt` varchar(9000) NOT NULL,
+  `OwnerRegisteredDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company_owners`
+--
+
+INSERT INTO `company_owners` (`CompanyOwnerId`, `OwnerFirstName`, `OwnerMiddleName`, `OwnerSurname`, `OwnerNationalId`, `OwnerPhoneNumber`, `OwnerEmail`, `GenderId`, `EncryptedPassword`, `Salt`, `OwnerRegisteredDate`) VALUES
+(2, 'Silas', 'Onyango', 'Konytango', '31547206', '0707902812', 'silas.onyango93@gmail.com', 1, '604081509c7b2203cb80d344179af513bdcbd2080b34a26b92572d485e85fb2135d426281a4fc3e3bce20a462ab6eeef9225a4c349568855211c829e91f4f264', 'mxN4iI5Au9H3Bu5k5FwpzPZ4iZL+W1o3bSfEg3nrPjWkeERVv/w6y5VkQ2udbCCPLyh3bFxj74L+G/yfHFrA0wYehkE6Ta9/DRn0RGmd8Q3CYBj71+3mAoCYYLXi7fr9IVNbtv1FeMVVx3BSjlSJTbAg+U/2mi7Otxce1h8xLyA=', '2019-10-10 13:28:18');
 
 -- --------------------------------------------------------
 
@@ -94,6 +117,19 @@ CREATE TABLE `company_ownership_groups` (
   `CompanyOwnershipGroupId` int(11) NOT NULL,
   `OwnershipGroupName` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company_ownership_groups`
+--
+
+INSERT INTO `company_ownership_groups` (`CompanyOwnershipGroupId`, `OwnershipGroupName`) VALUES
+(1, 'Safaricom'),
+(2, 'Safaricom'),
+(3, 'Safaricom'),
+(4, 'Safaricom'),
+(5, 'Safaricom'),
+(6, 'Safaricom'),
+(7, 'Safaricom');
 
 -- --------------------------------------------------------
 
@@ -114,7 +150,8 @@ CREATE TABLE `company_system_users` (
   `UserPhoneNumber` varchar(200) NOT NULL,
   `UserPhysicalAddress` varchar(9000) NOT NULL,
   `UserEncryptedPassword` varchar(9000) NOT NULL,
-  `UserSalt` varchar(9000) NOT NULL
+  `UserSalt` varchar(9000) NOT NULL,
+  `UserRegistrationDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -138,6 +175,14 @@ CREATE TABLE `gender` (
   `GenderId` int(11) NOT NULL,
   `GenderDescription` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gender`
+--
+
+INSERT INTO `gender` (`GenderId`, `GenderDescription`) VALUES
+(1, 'Male'),
+(2, 'Female');
 
 -- --------------------------------------------------------
 
@@ -200,6 +245,33 @@ CREATE TABLE `session_logs` (
   `SessionStartDate` datetime NOT NULL,
   `SessionEndDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `system_admin`
+--
+
+CREATE TABLE `system_admin` (
+  `AdminId` int(11) NOT NULL,
+  `AdminFirstName` varchar(200) NOT NULL,
+  `AdminMiddleName` varchar(200) NOT NULL,
+  `AdminSurname` varchar(200) NOT NULL,
+  `AdminPhoneNumber` varchar(200) NOT NULL,
+  `AdminEmail` varchar(200) NOT NULL,
+  `GenderId` int(11) NOT NULL,
+  `AdminNationalId` varchar(200) NOT NULL,
+  `EncryptedPassword` varchar(9000) NOT NULL,
+  `Salt` varchar(9000) NOT NULL,
+  `RegisteredDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `system_admin`
+--
+
+INSERT INTO `system_admin` (`AdminId`, `AdminFirstName`, `AdminMiddleName`, `AdminSurname`, `AdminPhoneNumber`, `AdminEmail`, `GenderId`, `AdminNationalId`, `EncryptedPassword`, `Salt`, `RegisteredDate`) VALUES
+(2, 'Silas', 'Onyango', 'Konyango', '0707902812', 'silas.onyango93@gmail.com', 1, '31547206', 'fb191b2f94907ea80958962b229ea8e2325c8a57a5980ac9fa4c21206bf92306691ee35b1a72cc1b0fe5c7be9cd0673cf069d70fa1ca806cf63c026877c6b812', 'vL7hf4bbFlUPZb3ZFDGxkbhZwF5Y8YZ/+MnvSFhbudYmtzmHq2W4CF0cTLj9UbtclyG/3aAdfssv7PJqCUXhVwH22Fw+lJRr0LMWXYk4giyojlUeBmJISQr0RJw2eSZrqL1VjQhbXKEQKAP0cKwvx/eCYGEwltV6xabU6EGFT+4=', '2019-10-05 09:37:47');
 
 --
 -- Indexes for dumped tables
@@ -293,6 +365,13 @@ ALTER TABLE `session_logs`
   ADD KEY `SystemUserId` (`SystemUserId`);
 
 --
+-- Indexes for table `system_admin`
+--
+ALTER TABLE `system_admin`
+  ADD PRIMARY KEY (`AdminId`),
+  ADD KEY `GenderId` (`GenderId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -300,12 +379,12 @@ ALTER TABLE `session_logs`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `CompanyId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CompanyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `company_branches`
 --
 ALTER TABLE `company_branches`
-  MODIFY `CompanyBranchId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CompanyBranchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `company_clients`
 --
@@ -315,12 +394,12 @@ ALTER TABLE `company_clients`
 -- AUTO_INCREMENT for table `company_owners`
 --
 ALTER TABLE `company_owners`
-  MODIFY `CompanyOwnerId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CompanyOwnerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `company_ownership_groups`
 --
 ALTER TABLE `company_ownership_groups`
-  MODIFY `CompanyOwnershipGroupId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CompanyOwnershipGroupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `company_system_users`
 --
@@ -335,7 +414,7 @@ ALTER TABLE `employment_categories`
 -- AUTO_INCREMENT for table `gender`
 --
 ALTER TABLE `gender`
-  MODIFY `GenderId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `GenderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `loan_application`
 --
@@ -356,6 +435,11 @@ ALTER TABLE `ownership_groups_company_owners_rship`
 --
 ALTER TABLE `session_logs`
   MODIFY `SessionLogId` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `system_admin`
+--
+ALTER TABLE `system_admin`
+  MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -420,6 +504,12 @@ ALTER TABLE `ownership_groups_company_owners_rship`
 --
 ALTER TABLE `session_logs`
   ADD CONSTRAINT `session_logs_ibfk_1` FOREIGN KEY (`SystemUserId`) REFERENCES `company_system_users` (`SystemUserId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `system_admin`
+--
+ALTER TABLE `system_admin`
+  ADD CONSTRAINT `system_admin_ibfk_1` FOREIGN KEY (`GenderId`) REFERENCES `gender` (`GenderId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
