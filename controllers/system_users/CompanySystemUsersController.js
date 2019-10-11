@@ -28,9 +28,9 @@ module.exports = class CompanySystemUsersController {
     static insert_users(jsonObject_) {
         return new Promise(function(resolve, reject) {
             //var userAlreadyRegisteredResult;
-            var TableName = "users";
-            var ColumnName = "Email";
-            var value_ = jsonObject_.Email;
+            var TableName = "company_system_users";
+            var ColumnName = "UserEmail";
+            var value_ = jsonObject_.UserEmail;
 
             var myModelMasterPromise = ModelMaster.selectSpecific(
                 TableName,

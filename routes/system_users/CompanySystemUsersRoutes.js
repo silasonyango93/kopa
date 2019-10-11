@@ -18,7 +18,7 @@ router.use(function timeLog(req, res, next) {
     next();
 });
 
-router.post("/user_registration", urlencodedParser, function(
+router.post("/system_user_registration", urlencodedParser, function(
     request,
     response
 ) {
@@ -26,10 +26,18 @@ router.post("/user_registration", urlencodedParser, function(
     date.setHours(date.getHours() + 0);
 
     var jsonObject_ = {
-        Name: request.body.Name,
-        Email: request.body.Email,
+        CompanyBranchId: request.body.CompanyBranchId,
+        UserFirstName: request.body.UserFirstName,
+        UserMiddleName: request.body.UserMiddleName,
+		UserSurname: request.body.UserSurname,
+        GenderId: request.body.GenderId,
+        StaffNo: request.body.StaffNo,
+		UserNationalId: request.body.UserNationalId,
+        UserEmail: request.body.UserEmail,
+        UserPhoneNumber: request.body.UserPhoneNumber,
+		UserPhysicalAddress: request.body.UserPhysicalAddress,
         Password: request.body.Password,
-        RegisteredDate: date
+        UserRegistrationDate: date
     };
 
     var myCompanySystemUsersControllerObjectPromise = CompanySystemUsersController.insert_users(
