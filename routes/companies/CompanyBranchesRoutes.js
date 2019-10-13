@@ -20,10 +20,13 @@ router.post("/add_company_branches", urlencodedParser, function(
   request,
   response
 ) {
+  var date = new Date();
+  date.setHours(date.getHours() + 0);
   var jsonObject_ = {
     CompanyId: request.body.CompanyId,
     BranchName: request.body.BranchName,
-    BranchPhysicalAddress: request.body.BranchPhysicalAddress
+    BranchPhysicalAddress: request.body.BranchPhysicalAddress,
+    CompanyBranchRegistrationDate: date
   };
 
   var myPromise = CompanyBranchesController.insert(jsonObject_);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2019 at 01:27 PM
+-- Generation Time: Oct 13, 2019 at 01:00 PM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -38,7 +38,7 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`CompanyId`, `CompanyOwnershipGroupId`, `CompanyName`, `CompanyRegistrationDate`) VALUES
-(1, 7, 'Safaricom', '2019-10-06 20:07:54');
+(3, 9, 'Safaricom', '2019-10-13 12:46:00');
 
 -- --------------------------------------------------------
 
@@ -50,15 +50,9 @@ CREATE TABLE `company_branches` (
   `CompanyBranchId` int(11) NOT NULL,
   `CompanyId` int(11) NOT NULL,
   `BranchName` varchar(9000) NOT NULL,
-  `BranchPhysicalAddress` varchar(9000) NOT NULL
+  `BranchPhysicalAddress` varchar(9000) NOT NULL,
+  `CompanyBranchRegistrationDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `company_branches`
---
-
-INSERT INTO `company_branches` (`CompanyBranchId`, `CompanyId`, `BranchName`, `BranchPhysicalAddress`) VALUES
-(1, 1, 'Westlands Branch', 'Westlands');
 
 -- --------------------------------------------------------
 
@@ -77,7 +71,8 @@ CREATE TABLE `company_clients` (
   `GenderId` int(11) NOT NULL,
   `ClientPhoneNumber` varchar(500) NOT NULL,
   `ClientPhysicalAddress` varchar(9000) NOT NULL,
-  `ClientEmail` varchar(500) DEFAULT NULL
+  `ClientEmail` varchar(500) DEFAULT NULL,
+  `ClientRegistrationDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -123,13 +118,7 @@ CREATE TABLE `company_ownership_groups` (
 --
 
 INSERT INTO `company_ownership_groups` (`CompanyOwnershipGroupId`, `OwnershipGroupName`) VALUES
-(1, 'Safaricom'),
-(2, 'Safaricom'),
-(3, 'Safaricom'),
-(4, 'Safaricom'),
-(5, 'Safaricom'),
-(6, 'Safaricom'),
-(7, 'Safaricom');
+(9, 'Safaricom');
 
 -- --------------------------------------------------------
 
@@ -232,6 +221,13 @@ CREATE TABLE `ownership_groups_company_owners_rship` (
   `CompanyOwnershipGroupId` int(11) NOT NULL,
   `CompanyOwnerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ownership_groups_company_owners_rship`
+--
+
+INSERT INTO `ownership_groups_company_owners_rship` (`OGCOId`, `CompanyOwnershipGroupId`, `CompanyOwnerId`) VALUES
+(3, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -379,12 +375,12 @@ ALTER TABLE `system_admin`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `CompanyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CompanyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `company_branches`
 --
 ALTER TABLE `company_branches`
-  MODIFY `CompanyBranchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CompanyBranchId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `company_clients`
 --
@@ -399,7 +395,7 @@ ALTER TABLE `company_owners`
 -- AUTO_INCREMENT for table `company_ownership_groups`
 --
 ALTER TABLE `company_ownership_groups`
-  MODIFY `CompanyOwnershipGroupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `CompanyOwnershipGroupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `company_system_users`
 --
@@ -429,7 +425,7 @@ ALTER TABLE `loan_repayment_installments`
 -- AUTO_INCREMENT for table `ownership_groups_company_owners_rship`
 --
 ALTER TABLE `ownership_groups_company_owners_rship`
-  MODIFY `OGCOId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OGCOId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `session_logs`
 --

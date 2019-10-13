@@ -20,6 +20,8 @@ router.post("/add_company_clients", urlencodedParser, function(
   request,
   response
 ) {
+  var date = new Date();
+  date.setHours(date.getHours() + 0);
   var jsonObject_ = {
     ClientId: request.body.ClientId,
     ClientFirstName: request.body.ClientFirstName,
@@ -31,7 +33,8 @@ router.post("/add_company_clients", urlencodedParser, function(
     GenderId: request.body.GenderId,
     ClientPhoneNumber: request.body.ClientPhoneNumber,
     ClientPhysicalAddress: request.body.ClientPhysicalAddress,
-    ClientEmail: request.body.ClientEmail
+    ClientEmail: request.body.ClientEmail,
+    ClientRegistrationDate: date
   };
 
   var myPromise = CompanyClientsController.insert(jsonObject_);
