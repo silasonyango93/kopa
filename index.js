@@ -17,9 +17,9 @@ var port = process.env.PORT || 5000;
 app.use(cors());
 dbcredentials = {
   host: process.env.DB_HOST,
-  user: process.env.DB__USER,
-  password: process.env.DB_PASS,
-  database: process.env.KOPA_DATABASE,
+  user: "silas",
+  password: "8032",
+  database: "kopa",
   insecureAuth: true
 };
 

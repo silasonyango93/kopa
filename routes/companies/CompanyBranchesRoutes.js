@@ -63,7 +63,6 @@ router.post("/get_specific_company_branches", urlencodedParser, function(
   response
 ) {
   var mKey = request.body.column_name;
-  //var mValue=parseInt(request.query.search_value, 10);
   var mValue = request.body.search_value;
 
   var myPromise = CompanyBranchesController.get_specific_records(mKey, mValue);

@@ -3,9 +3,9 @@ var dbcredentials;
 
 dbcredentials = {
   host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.KOPA_DATABASE,
+  user: "silas",
+  password: "8032",
+  database: "kopa",
   insecureAuth: true
 };
 

@@ -247,4 +247,18 @@ module.exports = class CompanyOwnersController {
       );
     });
   }
+
+  static getCompanyOwnersCompanyDetails(companyOwnerId) {
+    return new Promise(function(resolve, reject) {
+      var myUsersObjectPromise = CompanyOwnersModel.getCompanyOwnersCompanyDetails(companyOwnerId);
+      myUsersObjectPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

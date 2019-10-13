@@ -140,4 +140,19 @@ module.exports = class CompanyOwnersModel {
       );
     });
   }
+
+
+  static getCompanyOwnersCompanyDetails(companyOwnerId) {
+    return new Promise(function(resolve, reject) {
+      var myModelMasterPromise = ModelMaster.getCompanyOwnersCompanyDetails(companyOwnerId);
+      myModelMasterPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };
