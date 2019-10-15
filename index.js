@@ -10,6 +10,9 @@ const mysql = require("mysql");
 const express = require("express");
 const app = express();
 const path = require("path");
+var fs = require("fs");
+const multer = require('multer');
+const upload = multer({dest: __dirname + '/uploads/'});
 var dbcredentials;
 var cors = require("cors");
 var port = process.env.PORT || 5000;
@@ -23,7 +26,7 @@ dbcredentials = {
   insecureAuth: true
 };
 
-app.use(express.static("public"));
+app.use(express.static("uploads"));
 
 var con;
 app.use((req, res, next) => {
@@ -39,6 +42,28 @@ app.use((req, res, next) => {
   console.log("Connection established");
 
   next();
+});
+
+app.post('/upload_service', upload.single('file'), function(req, res) {
+  var file = __dirname + '/uploads/' + req.file.filename;
+  fs.rename(req.file.path, file, function(err) {
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else {
+      res.json({
+        message: 'File uploaded successfully',
+        filename: req.file.filename,
+        filePath: req.file.path
+      });
+    }
+  });
+});
+
+app.get("/display_image", (req, res) => {
+  //res.sendFile(path.join(__dirname, "./uploads/df37ba09d301ed7e28a5ac7bdbd36a92"));
+  res.send('<img src="/df37ba09d301ed7e28a5ac7bdbd36a92">');
+
 });
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start User Management*/

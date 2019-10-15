@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/system_users/CompanySystemUsersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/system_users/CompanySystemUsersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/system_users/CompanySystemUsersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/system_users/CompanySystemUsersRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/company_owners/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/routes/company_owners/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/system_clients/CompanyClientsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/system_clients/CompanyClientsRoutes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +38,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1291" />
-    <option name="height" value="732" />
-  </component>
   <component name="ProjectId" id="1QYPepYuNvmxt5u2yiveZqB6DMQ" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editorconfig.notification" value="null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../kopa_react_client" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -77,8 +75,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.index.js" />
       <item itemvalue="Node.js.mcare" />
+      <item itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
       <list>
@@ -122,6 +120,9 @@
       <workItem from="1570032806949" duration="584000" />
       <workItem from="1570039775366" duration="3000" />
       <workItem from="1570254357122" duration="4671000" />
+      <workItem from="1571052383294" duration="981000" />
+      <workItem from="1571119141214" duration="1674000" />
+      <workItem from="1571131858226" duration="5523000" />
     </task>
     <servers />
   </component>

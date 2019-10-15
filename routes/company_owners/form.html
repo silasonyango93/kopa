@@ -1,15 +1,14 @@
 <html>
-  <body>
-    <form action="http://127.0.0.1:5000/system_admin_registration" method="POST">
-      AdminFirstName: <input type="text" name="AdminFirstName" /> <br />
-      AdminMiddleName: <input type="text" name="AdminMiddleName" /> <br />
-      AdminSurname: <input type="text" name="AdminSurname" /> <br />
-      AdminPhoneNumber: <input type="text" name="AdminPhoneNumber" /> <br />
-      AdminEmail: <input type="text" name="AdminEmail" /> <br />
-      GenderId: <input type="text" name="GenderId" /> <br />
-      AdminNationalId: <input type="text" name="AdminNationalId" /> <br />
-      AdminPassword: <input type="password" name="AdminPassword" />
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
+<head>
+  <title>File Uploading Form</title>
+</head>
+<body>
+<h3>File Upload:</h3>
+Select a file to upload: <br />
+<form action="http://127.0.0.1:5000/upload_service" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" size="50" />
+  <br />
+  <input type="submit" value="Upload File" />
+</form>
+</body>
 </html>

@@ -8,12 +8,31 @@ calls from the client and passes the calls down to the
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
+var fs = require("fs");
+const multer = require('multer');
+const upload = multer({dest: __dirname + '/uploads/'});
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const CompanyClientsController = require("../../controllers/system_clients/CompanyClientsController.js");
 
 //Middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {
   next();
+});
+
+router.post('/file_upload', upload.single('file'), function(req, res) {
+  var file = __dirname + '/' + req.file.filename;
+  fs.rename(req.file.path, file, function(err) {
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else {
+      res.json({
+        message: 'File uploaded successfully',
+        filename: req.file.filename,
+        filePath: req.file.path
+      });
+    }
+  });
 });
 
 router.post("/add_company_clients", urlencodedParser, function(
@@ -23,7 +42,6 @@ router.post("/add_company_clients", urlencodedParser, function(
   var date = new Date();
   date.setHours(date.getHours() + 0);
   var jsonObject_ = {
-    ClientId: request.body.ClientId,
     ClientFirstName: request.body.ClientFirstName,
     ClientMiddleName: request.body.ClientMiddleName,
     ClientSurname: request.body.ClientSurname,
