@@ -49,6 +49,7 @@ router.post("/add_company_clients", urlencodedParser, function(
     ClientPhotoUrl: request.body.ClientPhotoUrl,
     ClientImageName: request.body.ClientImageName,
     GenderId: request.body.GenderId,
+    ClientDOB: request.body.ClientDOB,
     ClientPhoneNumber: request.body.ClientPhoneNumber,
     ClientPhysicalAddress: request.body.ClientPhysicalAddress,
     ClientEmail: request.body.ClientEmail,
