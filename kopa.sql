@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2019 at 08:28 PM
+-- Generation Time: Oct 19, 2019 at 07:17 PM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -69,6 +69,7 @@ CREATE TABLE `company_clients` (
   `ClientProfilePicName` varchar(900) NOT NULL,
   `ClientNationalIdPicName` varchar(900) NOT NULL,
   `GenderId` int(11) NOT NULL,
+  `ClientDOB` date NOT NULL,
   `ClientPhoneNumber` varchar(500) NOT NULL,
   `ClientPhysicalAddress` varchar(9000) NOT NULL,
   `ClientEmail` varchar(500) DEFAULT NULL,
