@@ -19,20 +19,22 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.post('/file_upload', upload.single('file'), function(req, res) {
-  var file = __dirname + '/' + req.file.filename;
+router.post('/upload_client_photo', upload.single('file'), function(req, res) {
+  var file = __dirname + '/uploads/' + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
       res.send(500);
     } else {
-      res.json({
-        message: 'File uploaded successfully',
-        filename: req.file.filename,
-        filePath: req.file.path
-      });
+      console.log(req.file.filename);
     }
   });
+});
+
+router.get("/display_client_photo", (req, res) => {
+  var imageID = req.query.imageID;
+  res.send('<img src="/' + imageID + '">');
+
 });
 
 router.post("/add_company_clients", urlencodedParser, function(
@@ -46,8 +48,8 @@ router.post("/add_company_clients", urlencodedParser, function(
     ClientMiddleName: request.body.ClientMiddleName,
     ClientSurname: request.body.ClientSurname,
     ClientNationalId: request.body.ClientNationalId,
-    ClientPhotoUrl: request.body.ClientPhotoUrl,
-    ClientImageName: request.body.ClientImageName,
+    ClientProfilePicName: request.body.ClientProfilePicName,
+    ClientNationalIdPicName: request.body.ClientNationalIdPicName,
     GenderId: request.body.GenderId,
     ClientDOB: request.body.ClientDOB,
     ClientPhoneNumber: request.body.ClientPhoneNumber,

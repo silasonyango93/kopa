@@ -51,18 +51,15 @@ app.post('/upload_service', upload.single('file'), function(req, res) {
       console.log(err);
       res.send(500);
     } else {
-      res.json({
-        message: 'File uploaded successfully',
-        filename: req.file.filename,
-        filePath: req.file.path
-      });
+      console.log(req.file.filename);
     }
   });
 });
 
 app.get("/display_image", (req, res) => {
   //res.sendFile(path.join(__dirname, "./uploads/df37ba09d301ed7e28a5ac7bdbd36a92"));
-  res.send('<img src="/df37ba09d301ed7e28a5ac7bdbd36a92">');
+  var imageID = req.query.imageID;
+  res.send('<img src="/' + imageID + '">');
 
 });
 
