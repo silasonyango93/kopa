@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/system_clients/CompanyClientsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/system_clients/CompanyClientsRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/5d97887e464255c114223b49883a6076" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/778f61df345f3f982aa9e12740fb25ef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/9013ba8a970e5f0b8dead3a931bfa665" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/df37ba09d301ed7e28a5ac7bdbd36a92" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +108,7 @@
       <workItem from="1571052383294" duration="981000" />
       <workItem from="1571119141214" duration="1674000" />
       <workItem from="1571131858226" duration="5523000" />
+      <workItem from="1571570182803" duration="2203000" />
     </task>
     <servers />
   </component>

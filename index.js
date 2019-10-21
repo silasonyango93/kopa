@@ -14,8 +14,9 @@ var fs = require("fs");
 const multer = require('multer');
 const upload = multer({dest: __dirname + '/uploads/'});
 var dbcredentials;
+const CompanyClientsController = require("./controllers/system_clients/CompanyClientsController.js");
 var cors = require("cors");
-var port = process.env.PORT || 5000;
+var port = 80;
 
 app.use(cors());
 dbcredentials = {
@@ -44,14 +45,42 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/upload_service', upload.single('file'), function(req, res) {
+app.post('/add_company_clients', upload.single('file'), function(req, res) {
   var file = __dirname + '/uploads/' + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
       res.send(500);
     } else {
-      console.log(req.file.filename);
+
+      var date = new Date();
+      date.setHours(date.getHours() + 0);
+      var jsonObject_ = {
+        ClientFirstName: req.body.ClientFirstName,
+        ClientMiddleName: req.body.ClientMiddleName,
+        ClientSurname: req.body.ClientSurname,
+        ClientNationalId: req.body.ClientNationalId,
+        ClientProfilePicName: req.file.filename,
+        GenderId: req.body.GenderId,
+        ClientDOB: req.body.ClientDOB,
+        ClientPhoneNumber: req.body.ClientPhoneNumber,
+        ClientPhysicalAddress: req.body.ClientPhysicalAddress,
+        ClientEmail: req.body.ClientEmail,
+        ClientRegistrationDate: date
+      };
+
+      var myPromise = CompanyClientsController.insert(jsonObject_);
+
+      myPromise.then(
+        function(result) {
+          var response_object = { results: result };
+          res.send(response_object);
+        },
+        function(err) {
+          console.log(err);
+          res.send("An error occurred");
+        }
+      );
     }
   });
 });
@@ -118,7 +147,7 @@ app.use(function(err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 
-var port = process.env.PORT || 5000;
+var port = 80;
 
 app.listen(port, function() {
   console.log("Listening on " + port);

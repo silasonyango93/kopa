@@ -37,7 +37,7 @@ router.get("/display_client_photo", (req, res) => {
 
 });
 
-router.post("/add_company_clients", urlencodedParser, function(
+router.post("/add_company_clients__OLD", urlencodedParser, function(
   request,
   response
 ) {
@@ -49,7 +49,6 @@ router.post("/add_company_clients", urlencodedParser, function(
     ClientSurname: request.body.ClientSurname,
     ClientNationalId: request.body.ClientNationalId,
     ClientProfilePicName: request.body.ClientProfilePicName,
-    ClientNationalIdPicName: request.body.ClientNationalIdPicName,
     GenderId: request.body.GenderId,
     ClientDOB: request.body.ClientDOB,
     ClientPhoneNumber: request.body.ClientPhoneNumber,
