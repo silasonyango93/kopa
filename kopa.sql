@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2019 at 09:54 PM
+-- Generation Time: Oct 23, 2019 at 08:36 PM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -151,6 +151,7 @@ CREATE TABLE `company_system_users` (
 
 CREATE TABLE `employment_categories` (
   `EmploymentCategoryId` int(11) NOT NULL,
+  `CompanyId` int(11) NOT NULL,
   `CategoryDescription` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -319,7 +320,8 @@ ALTER TABLE `company_system_users`
 -- Indexes for table `employment_categories`
 --
 ALTER TABLE `employment_categories`
-  ADD PRIMARY KEY (`EmploymentCategoryId`);
+  ADD PRIMARY KEY (`EmploymentCategoryId`),
+  ADD KEY `CompanyId` (`CompanyId`);
 
 --
 -- Indexes for table `gender`
@@ -470,6 +472,12 @@ ALTER TABLE `company_owners`
 ALTER TABLE `company_system_users`
   ADD CONSTRAINT `company_system_users_ibfk_1` FOREIGN KEY (`CompanyBranchId`) REFERENCES `company_branches` (`CompanyBranchId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `company_system_users_ibfk_2` FOREIGN KEY (`GenderId`) REFERENCES `gender` (`GenderId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employment_categories`
+--
+ALTER TABLE `employment_categories`
+  ADD CONSTRAINT `employment_categories_ibfk_1` FOREIGN KEY (`CompanyId`) REFERENCES `companies` (`CompanyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `loan_application`
