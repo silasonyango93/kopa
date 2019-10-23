@@ -21,7 +21,8 @@ router.post("/add_employment_categories", urlencodedParser, function(
     response
 ) {
     var jsonObject_ = {
-        CategoryDescription: request.body.CategoryDescription,
+      CompanyId: request.body.CompanyId,
+      CategoryDescription: request.body.CategoryDescription
     };
 
     var myPromise = EmploymentCategoriesController.insert(jsonObject_);
