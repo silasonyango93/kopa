@@ -251,4 +251,21 @@ module.exports = class CompanySystemUsersController {
       );
     });
   }
+
+  static getSystemUserCompanyDetails(SystemUserId) {
+    return new Promise(function(resolve, reject) {
+      var myUsersObjectPromise = CompanySystemUsersModel.getSystemUserCompanyDetails(
+        SystemUserId
+      );
+
+      myUsersObjectPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

@@ -263,4 +263,26 @@ router.post(
   }
 );
 
+router.post("/get_system_user_company_details", urlencodedParser, function(
+  request,
+  response
+) {
+  var SystemUserId = request.body.SystemUserId;
+
+  var myCompanySystemUsersControllerObjectPromise = CompanySystemUsersController.getSystemUserCompanyDetails(
+    SystemUserId
+  );
+
+  myCompanySystemUsersControllerObjectPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
 module.exports = router;

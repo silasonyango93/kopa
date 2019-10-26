@@ -1069,4 +1069,21 @@ with no WHERE clause(No condition)
       );
     });
   }
+
+  static getSystemUserCompanyDetails(SystemUserId) {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "SELECT * FROM companies INNER JOIN company_branches ON companies.CompanyId = company_branches.CompanyId INNER JOIN company_system_users ON company_system_users.CompanyBranchId = company_branches.CompanyBranchId WHERE company_system_users.SystemUserId = " +
+          SystemUserId +
+          ";",
+        function(err, result) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        }
+      );
+    });
+  }
 };
