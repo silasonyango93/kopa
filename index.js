@@ -56,6 +56,7 @@ app.post('/add_company_clients', upload.single('file'), function(req, res) {
       var date = new Date();
       date.setHours(date.getHours() + 0);
       var jsonObject_ = {
+        ClientUniqueId: request.body.ClientUniqueId,
         ClientFirstName: req.body.ClientFirstName,
         ClientMiddleName: req.body.ClientMiddleName,
         ClientSurname: req.body.ClientSurname,

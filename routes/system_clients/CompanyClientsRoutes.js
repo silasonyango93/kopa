@@ -44,6 +44,7 @@ router.post("/add_company_clients__OLD", urlencodedParser, function(
   var date = new Date();
   date.setHours(date.getHours() + 0);
   var jsonObject_ = {
+    ClientUniqueId: request.body.ClientUniqueId,
     ClientFirstName: request.body.ClientFirstName,
     ClientMiddleName: request.body.ClientMiddleName,
     ClientSurname: request.body.ClientSurname,

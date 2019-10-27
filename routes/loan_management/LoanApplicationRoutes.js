@@ -31,7 +31,7 @@ router.post("/add_loan_application", urlencodedParser, function(
         ExpectedSettlementDate: request.body.ExpectedSettlementDate,
         LoanRating: request.body.LoanRating,
         IsFullyPaid: request.body.IsFullyPaid,
-        RemainingLoanAount: request.body.RemainingLoanAount,
+        RemainingLoanAmount: request.body.RemainingLoanAmount,
         EmploymentStatus: request.body.EmploymentStatus,
         EmploymentCategoryId: request.body.EmploymentCategoryId,
         Occupation: request.body.Occupation,
