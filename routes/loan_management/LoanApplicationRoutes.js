@@ -20,13 +20,14 @@ router.post("/add_loan_application", urlencodedParser, function(
     request,
     response
 ) {
+    var date = new Date();
+    date.setHours(date.getHours() + 0);
     var jsonObject_ = {
         ClientId: request.body.ClientId,
         CompanyId: request.body.CompanyId,
         CompanyBranchId: request.body.CompanyBranchId,
         SystemUserId: request.body.SystemUserId,
         LoanAmount: request.body.LoanAmount,
-        LoanApplicationDate: request.body.LoanApplicationDate,
         ExpectedSettlementDate: request.body.ExpectedSettlementDate,
         LoanRating: request.body.LoanRating,
         IsFullyPaid: request.body.IsFullyPaid,
@@ -35,6 +36,7 @@ router.post("/add_loan_application", urlencodedParser, function(
         EmploymentCategoryId: request.body.EmploymentCategoryId,
         Occupation: request.body.Occupation,
         EmploymentStation: request.body.EmploymentStation,
+        LoanApplicationDate: date
     };
 
     var myPromise = LoanApplicationController.insert(jsonObject_);
