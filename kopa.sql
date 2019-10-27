@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2019 at 08:36 PM
+-- Generation Time: Oct 27, 2019 at 11:54 AM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -62,6 +62,7 @@ CREATE TABLE `company_branches` (
 
 CREATE TABLE `company_clients` (
   `ClientId` int(11) NOT NULL,
+  `ClientUniqueId` varchar(500) NOT NULL,
   `ClientFirstName` varchar(500) NOT NULL,
   `ClientMiddleName` varchar(500) NOT NULL,
   `ClientSurname` varchar(500) NOT NULL,
@@ -189,9 +190,9 @@ CREATE TABLE `loan_application` (
   `LoanAmount` int(11) NOT NULL,
   `LoanApplicationDate` datetime NOT NULL,
   `ExpectedSettlementDate` date NOT NULL,
-  `LoanRating` int(11) NOT NULL,
+  `LoanRating` int(11) DEFAULT NULL,
   `IsFullyPaid` int(11) NOT NULL,
-  `RemainingLoanAount` int(11) NOT NULL,
+  `RemainingLoanAmount` int(11) NOT NULL,
   `EmploymentStatus` int(11) NOT NULL,
   `EmploymentCategoryId` int(11) DEFAULT NULL,
   `Occupation` varchar(500) NOT NULL,
