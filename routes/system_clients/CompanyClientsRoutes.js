@@ -271,4 +271,25 @@ router.post("/company_clients_user_specific_query", urlencodedParser, function(
   );
 });
 
+
+
+router.post("/client_any_search", urlencodedParser, function(
+  request,
+  response
+) {
+  var searchParameter = request.body.searchParameter;
+  var myPromise = CompanyClientsController.searchClientsByAnyParameter(searchParameter);
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
 module.exports = router;

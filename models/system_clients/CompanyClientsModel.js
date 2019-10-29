@@ -156,4 +156,18 @@ module.exports = class CompanyClientsModel {
       );
     });
   }
+
+  static searchClientsByAnyParameter(searchParameter) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.searchClientsByAnyParameter(searchParameter);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

@@ -158,4 +158,20 @@ module.exports = class CompanyClientsController {
       );
     });
   }
+
+
+  static searchClientsByAnyParameter(searchParameter) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = CompanyClientsModel.searchClientsByAnyParameter(searchParameter);
+
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };
