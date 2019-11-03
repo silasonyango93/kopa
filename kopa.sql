@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2019 at 11:54 AM
+-- Generation Time: Nov 03, 2019 at 03:34 PM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -73,7 +73,11 @@ CREATE TABLE `company_clients` (
   `ClientPhoneNumber` varchar(500) NOT NULL,
   `ClientPhysicalAddress` varchar(9000) NOT NULL,
   `ClientEmail` varchar(500) DEFAULT NULL,
-  `ClientRegistrationDate` datetime NOT NULL
+  `ClientRegistrationDate` datetime NOT NULL,
+  `EmploymentStatus` int(11) NOT NULL,
+  `EmploymentCategoryId` int(11) NOT NULL,
+  `Occupation` varchar(500) NOT NULL,
+  `EmploymentStation` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -294,7 +298,8 @@ ALTER TABLE `company_branches`
 --
 ALTER TABLE `company_clients`
   ADD PRIMARY KEY (`ClientId`),
-  ADD KEY `GenderId` (`GenderId`);
+  ADD KEY `GenderId` (`GenderId`),
+  ADD KEY `EmploymentCategoryId` (`EmploymentCategoryId`);
 
 --
 -- Indexes for table `company_owners`
@@ -459,7 +464,8 @@ ALTER TABLE `company_branches`
 -- Constraints for table `company_clients`
 --
 ALTER TABLE `company_clients`
-  ADD CONSTRAINT `company_clients_ibfk_1` FOREIGN KEY (`GenderId`) REFERENCES `gender` (`GenderId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `company_clients_ibfk_1` FOREIGN KEY (`GenderId`) REFERENCES `gender` (`GenderId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `company_clients_ibfk_2` FOREIGN KEY (`EmploymentCategoryId`) REFERENCES `employment_categories` (`EmploymentCategoryId`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `company_owners`
