@@ -67,6 +67,10 @@ app.post('/add_company_clients', upload.single('file'), function(req, res) {
         ClientPhoneNumber: req.body.ClientPhoneNumber,
         ClientPhysicalAddress: req.body.ClientPhysicalAddress,
         ClientEmail: req.body.ClientEmail,
+        EmploymentStatus: req.body.EmploymentStatus,
+        EmploymentCategoryId: req.body.EmploymentCategoryId,
+        Occupation: req.body.Occupation,
+        EmploymentStation: req.body.EmploymentStation,
         ClientRegistrationDate: date
       };
 
