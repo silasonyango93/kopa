@@ -1,34 +1,22 @@
-const mysql = require('mysql');
+var mysql = require("mysql");
+var dbcredentials;
 
-// Database Connection for Production
+dbcredentials = {
+  host: 'mysql-db',
+  user: "silas",
+  password: "8032",
+  database: "kopa",
+  insecureAuth: true
+};
 
-let config = {
-    user: process.env.SQL_USER,
-    database: process.env.SQL_DATABASE,
-    password: process.env.SQL_PASSWORD,
-}
-
-if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-  config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
-}
-
-let con = mysql.createConnection(config);
-
-// Database Connection for Development
-
-// let connection = mysql.createConnection({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   database: process.env.DB_DATABASE,
-//   password: process.env.DB_PASS
-// });
-
-con.connect(function(err) {
-  if (err) {
-    console.error('Error connecting: ' + err.stack);
-    return;
+var con = mysql.createConnection(dbcredentials);
+con.on("error", err => {
+  console.log("db error", err);
+  if (err.code === "PROTOCOL_CONNECTION_LOST") {
+    console.log(err);
+  } else {
+    //throw err;
   }
-  console.log('Connected as thread id: ' + con.threadId);
 });
 
 module.exports = con;

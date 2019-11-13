@@ -20,7 +20,7 @@ var port = 80;
 
 app.use(cors());
 dbcredentials = {
-  host: process.env.DB_HOST,
+  host: '35.195.17.86',
   user: "silas",
   password: "8032",
   database: "kopa",
