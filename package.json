@@ -28,6 +28,7 @@
     "pbkdf2": "^3.0.17"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.11.1",
     "request": "^2.81.0",

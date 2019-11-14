@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="" />
+    <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/dbConnect.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/dbConnect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +24,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QYPepYuNvmxt5u2yiveZqB6DMQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="null" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kopa_react_client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -56,8 +64,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.index.js" />
       <item itemvalue="Node.js.mcare" />
+      <item itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
       <list>
@@ -112,6 +120,13 @@
       <workItem from="1572168000364" duration="2208000" />
       <workItem from="1572173576670" duration="466000" />
       <workItem from="1572325802671" duration="310000" />
+      <workItem from="1573015352127" duration="965000" />
+      <workItem from="1573018650424" duration="394000" />
+      <workItem from="1573060288526" duration="598000" />
+      <workItem from="1573066394618" duration="364000" />
+      <workItem from="1573128865112" duration="2676000" />
+      <workItem from="1573147291318" duration="5599000" />
+      <workItem from="1573652001087" duration="1951000" />
     </task>
     <servers />
   </component>

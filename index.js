@@ -5,7 +5,7 @@ the database connection and port binding
 then initializes all the route files.
 
 */
-
+//require('dotenv').config()
 const mysql = require("mysql");
 const express = require("express");
 const app = express();
@@ -20,7 +20,7 @@ var port = 80;
 
 app.use(cors());
 dbcredentials = {
-  host: process.env.DB_HOST,
+  host: '35.195.17.86',
   user: "silas",
   password: "8032",
   database: "kopa",
@@ -154,6 +154,9 @@ app.use(function(err, req, res, next) {
 
 var port = 80;
 
-app.listen(port, function() {
-  console.log("Listening on " + port);
+const server = app.listen(8080, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log(`Example app listening at http://${host}:${port}`);
 });

@@ -2,7 +2,7 @@ var mysql = require("mysql");
 var dbcredentials;
 
 dbcredentials = {
-  host: process.env.DB_HOST,
+  host: 'mysql-db',
   user: "silas",
   password: "8032",
   database: "kopa",
