@@ -11,8 +11,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 var fs = require("fs");
-const multer = require('multer');
-const upload = multer({dest: __dirname + '/uploads/'});
+const multer = require("multer");
+const upload = multer({ dest: __dirname + "/uploads/" });
 var dbcredentials;
 const CompanyClientsController = require("./controllers/system_clients/CompanyClientsController.js");
 var cors = require("cors");
@@ -20,7 +20,7 @@ var port = 80;
 
 app.use(cors());
 dbcredentials = {
-  host: '35.195.17.86',
+  host: "35.195.17.86",
   user: "silas",
   password: "8032",
   database: "kopa",
@@ -45,14 +45,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/add_company_clients', upload.single('file'), function(req, res) {
-  var file = __dirname + '/uploads/' + req.file.filename;
+app.post("/add_company_clients", upload.single("file"), function(req, res) {
+  var file = __dirname + "/uploads/" + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
       res.send(500);
     } else {
-
       var date = new Date();
       date.setHours(date.getHours() + 0);
       var jsonObject_ = {
@@ -94,7 +93,6 @@ app.get("/display_image", (req, res) => {
   //res.sendFile(path.join(__dirname, "./uploads/df37ba09d301ed7e28a5ac7bdbd36a92"));
   var imageID = req.query.imageID;
   res.send('<img src="/' + imageID + '">');
-
 });
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start User Management*/

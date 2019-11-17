@@ -4,7 +4,6 @@
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/dbConnect.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/dbConnect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,19 +55,31 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.index.js">
+  <component name="RunManager" selected="npm.build">
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="mcare" type="NodeJSConfigurationType" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.mcare" />
       <item itemvalue="Node.js.index.js" />
+      <item itemvalue="npm.build" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
@@ -126,7 +137,10 @@
       <workItem from="1573066394618" duration="364000" />
       <workItem from="1573128865112" duration="2676000" />
       <workItem from="1573147291318" duration="5599000" />
-      <workItem from="1573652001087" duration="1951000" />
+      <workItem from="1573652001087" duration="5908000" />
+      <workItem from="1573719772015" duration="6000" />
+      <workItem from="1573722979823" duration="10463000" />
+      <workItem from="1573976102665" duration="7004000" />
     </task>
     <servers />
   </component>
