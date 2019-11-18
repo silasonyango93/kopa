@@ -123,6 +123,7 @@ app.use(require("./routes/system_clients/CompanyClientsRoutes.js"));
 app.use(require("./routes/common_utilities/GenderRoutes.js"));
 app.use(require("./routes/common_utilities/SessionLogs.js"));
 app.use(require("./routes/common_utilities/EmploymentCategoriesRoutes.js"));
+app.use(require("./routes/common_utilities/ConfigurationTableRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Common Utilities*/
 
