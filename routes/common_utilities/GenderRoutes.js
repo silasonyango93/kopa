@@ -21,7 +21,8 @@ router.post("/add_gender", urlencodedParser, function(
     response
 ) {
     var jsonObject_ = {
-        GenderDescription: request.body.GenderDescription,
+      GenderId: request.body.GenderId ? request.body.GenderId : null,
+      GenderDescription: request.body.GenderDescription
     };
 
     var myPromise = GenderController.insert(jsonObject_);

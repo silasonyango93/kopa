@@ -21,7 +21,7 @@ router.post("/add_company_ownership_groups", urlencodedParser, function(
   response
 ) {
   var jsonObject_ = {
-    CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId,
+    CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId ? request.body.CompanyOwnershipGroupId : null,
     OwnershipGroupName: request.body.OwnershipGroupName
   };
 

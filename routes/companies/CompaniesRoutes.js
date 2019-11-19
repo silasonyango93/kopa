@@ -23,6 +23,7 @@ router.post("/add_companies", urlencodedParser, function(
   var date = new Date();
   date.setHours(date.getHours() + 0);
   var jsonObject_ = {
+    CompanyId: request.body.CompanyId ? request.body.CompanyId : null,
     CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId,
     CompanyName: request.body.CompanyName,
     CompanyRegistrationDate: date

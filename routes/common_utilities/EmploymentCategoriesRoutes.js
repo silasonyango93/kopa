@@ -21,6 +21,7 @@ router.post("/add_employment_categories", urlencodedParser, function(
     response
 ) {
     var jsonObject_ = {
+      EmploymentCategoryId: request.body.EmploymentCategoryId ? request.body.EmploymentCategoryId : null,
       CompanyId: request.body.CompanyId,
       CategoryDescription: request.body.CategoryDescription
     };

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 03, 2019 at 03:34 PM
--- Server version: 5.7.27-0ubuntu0.16.04.1
--- PHP Version: 7.0.33-0ubuntu0.16.04.6
+-- Host: mysql-db:tcp://10.0.8.77:80
+-- Generation Time: Nov 18, 2019 at 04:07 PM
+-- Server version: 5.7.28
+-- PHP Version: 7.2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -147,6 +149,25 @@ CREATE TABLE `company_system_users` (
   `UserSalt` varchar(9000) NOT NULL,
   `UserRegistrationDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `configuration_table`
+--
+
+CREATE TABLE `configuration_table` (
+  `ConfigId` int(11) NOT NULL,
+  `ConfigDescription` varchar(200) NOT NULL,
+  `ConfigStatus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `configuration_table`
+--
+
+INSERT INTO `configuration_table` (`ConfigId`, `ConfigDescription`, `ConfigStatus`) VALUES
+(1, 'INITIAL_DATABASE_CONFIGURATION', 1);
 
 -- --------------------------------------------------------
 
@@ -384,66 +405,79 @@ ALTER TABLE `system_admin`
 --
 ALTER TABLE `companies`
   MODIFY `CompanyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `company_branches`
 --
 ALTER TABLE `company_branches`
   MODIFY `CompanyBranchId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `company_clients`
 --
 ALTER TABLE `company_clients`
   MODIFY `ClientId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `company_owners`
 --
 ALTER TABLE `company_owners`
   MODIFY `CompanyOwnerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `company_ownership_groups`
 --
 ALTER TABLE `company_ownership_groups`
   MODIFY `CompanyOwnershipGroupId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `company_system_users`
 --
 ALTER TABLE `company_system_users`
   MODIFY `SystemUserId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `employment_categories`
 --
 ALTER TABLE `employment_categories`
   MODIFY `EmploymentCategoryId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `gender`
 --
 ALTER TABLE `gender`
   MODIFY `GenderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `loan_application`
 --
 ALTER TABLE `loan_application`
   MODIFY `LoanApplicationId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `loan_repayment_installments`
 --
 ALTER TABLE `loan_repayment_installments`
   MODIFY `InstallmentId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `ownership_groups_company_owners_rship`
 --
 ALTER TABLE `ownership_groups_company_owners_rship`
   MODIFY `OGCOId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `session_logs`
 --
 ALTER TABLE `session_logs`
   MODIFY `SessionLogId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `system_admin`
 --
 ALTER TABLE `system_admin`
   MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Constraints for dumped tables
 --
@@ -521,6 +555,7 @@ ALTER TABLE `session_logs`
 --
 ALTER TABLE `system_admin`
   ADD CONSTRAINT `system_admin_ibfk_1` FOREIGN KEY (`GenderId`) REFERENCES `gender` (`GenderId`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

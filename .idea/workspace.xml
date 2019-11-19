@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kopa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/kopa.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/common_utilities/EmploymentCategoriesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/common_utilities/EmploymentCategoriesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/common_utilities/GenderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/common_utilities/GenderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/companies/CompaniesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/companies/CompaniesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/ownership_groups/CompanyOwnershipGroupsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/ownership_groups/CompanyOwnershipGroupsRoutes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +147,7 @@
       <workItem from="1573976102665" duration="7004000" />
       <workItem from="1574070996642" duration="833000" />
       <workItem from="1574079815185" duration="214000" />
-      <workItem from="1574080037415" duration="1500000" />
+      <workItem from="1574080037415" duration="8247000" />
     </task>
     <servers />
   </component>
