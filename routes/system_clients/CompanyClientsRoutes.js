@@ -144,6 +144,33 @@ router.post("/update_company_clients", urlencodedParser, function(
   );
 });
 
+
+
+router.post("/update_company_clients_employment_details", urlencodedParser, function(
+  request,
+  response
+) {
+  var jsonObject_ = {
+    EmploymentStatus: request.body.EmploymentStatus,
+    EmploymentCategoryId: request.body.EmploymentCategoryId,
+    Occupation: request.body.Occupation,
+    EmploymentStation: request.body.EmploymentStation,
+  };
+
+  var myPromise = CompanyClientsController.batch_update(jsonObject_);
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
 router.post("/update_individual_company_clients", urlencodedParser, function(
   request,
   response
@@ -163,6 +190,38 @@ router.post("/update_individual_company_clients", urlencodedParser, function(
     ClientPhoneNumber: request.body.ClientPhoneNumber,
     ClientPhysicalAddress: request.body.ClientPhysicalAddress,
     ClientEmail: request.body.ClientEmail
+  };
+
+  var myPromise = CompanyClientsController.individual_record_update(
+    column_name,
+    value_,
+    jsonObject_
+  );
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+router.post("/update_individual_company_clients_employment_details", urlencodedParser, function(
+  request,
+  response
+) {
+  var column_name = request.body.ColumnName;
+  var value_ = request.body.ColumnValue;
+
+  var jsonObject_ = {
+    EmploymentStatus: request.body.EmploymentStatus,
+    EmploymentCategoryId: request.body.EmploymentCategoryId,
+    Occupation: request.body.Occupation,
+    EmploymentStation: request.body.EmploymentStation,
   };
 
   var myPromise = CompanyClientsController.individual_record_update(

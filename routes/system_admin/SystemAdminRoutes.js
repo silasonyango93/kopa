@@ -2,7 +2,7 @@
 
 This class is the system_admins table's route class.
 It is initialized at the "Index.js" and is able to recieve
-calls from the client and passes the calls down to the 
+calls from the client and passes the calls down to the
 "SystemAdminController" class
 
 */
