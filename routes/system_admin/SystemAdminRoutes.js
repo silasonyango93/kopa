@@ -52,8 +52,8 @@ router.post("/system_admin_registration", urlencodedParser, function(
   );
 });
 
-router.get("/signup", function(req, res) {
-  res.sendFile(__dirname + "/" + "form.html");
+router.get("/admin_registration_form", function(req, res) {
+  res.sendFile(__dirname + "/" + "AdminRegistration.html");
 });
 
 router.get("/admin_login", function(req, res) {
