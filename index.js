@@ -47,6 +47,7 @@ app.use((req, res, next) => {
 
 app.post("/add_company_clients", upload.single("file"), function(req, res) {
   var file = __dirname + "/uploads/" + req.file.filename;
+  console.log(req);
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
@@ -70,6 +71,7 @@ app.post("/add_company_clients", upload.single("file"), function(req, res) {
         EmploymentCategoryId: req.body.EmploymentCategoryId,
         Occupation: req.body.Occupation,
         EmploymentStation: req.body.EmploymentStation,
+        EncodedImageString: req.body.EncodedImageString,
         ClientRegistrationDate: date
       };
 
@@ -94,6 +96,7 @@ app.get("/display_image", (req, res) => {
   var imageID = req.query.imageID;
   res.send('<img src="/' + imageID + '">');
 });
+
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start User Management*/
 

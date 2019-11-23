@@ -242,6 +242,37 @@ router.post("/update_individual_company_clients_employment_details", urlencodedP
   );
 });
 
+
+router.post("/update_individual_company_clients_encoded_image", urlencodedParser, function(
+  request,
+  response
+) {
+  var column_name = request.body.ColumnName;
+  var value_ = request.body.ColumnValue;
+
+  var jsonObject_ = {
+    EncodedImageString: request.body.EncodedImageString
+  };
+
+  var myPromise = CompanyClientsController.individual_record_update(
+    column_name,
+    value_,
+    jsonObject_
+  );
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+
 router.post("/delete_individual_company_clients", urlencodedParser, function(
   request,
   response
