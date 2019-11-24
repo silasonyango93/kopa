@@ -2,7 +2,7 @@ var mysql = require("mysql");
 var dbcredentials;
 
 dbcredentials = {
-  host: "mysql-db",
+  host: "localhost",
   user: "silas",
   password: "8032",
   database: "kopa",
@@ -10,7 +10,7 @@ dbcredentials = {
 };
 
 const pool = mysql.createPool({
-  host: "mysql-db",
+  host: "localhost",
   user: "silas",
   password: "8032",
   database: "kopa",
