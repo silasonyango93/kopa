@@ -156,7 +156,7 @@ app.use(function(err, req, res, next) {
 
 var port = 80;
 
-const server = app.listen(8080, () => {
+const server = app.listen(80, () => {
   const host = server.address().address;
   const port = server.address().port;
 
