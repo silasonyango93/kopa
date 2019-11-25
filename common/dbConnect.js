@@ -22,14 +22,14 @@ setInterval(() => {
   });
 }, 1000);
 
-var con = mysql.createConnection(dbcredentials);
-con.on("error", err => {
-  console.log("db error", err);
-  if (err.code === "PROTOCOL_CONNECTION_LOST") {
-    console.log(err);
-  } else {
-    //throw err;
-  }
-});
+// var con = mysql.createConnection(dbcredentials);
+// con.on("error", err => {
+//   console.log("db error", err);
+//   if (err.code === "PROTOCOL_CONNECTION_LOST") {
+//     console.log(err);
+//   } else {
+//     //throw err;
+//   }
+// });
 
-module.exports = con;
+module.exports = pool;
