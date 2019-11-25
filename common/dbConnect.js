@@ -9,7 +9,7 @@ dbcredentials = {
   insecureAuth: true
 };
 
-const pool = mysql.createPool({
+const con = mysql.createPool({
   host: "localhost",
   user: "silas",
   password: "8032",
@@ -17,7 +17,7 @@ const pool = mysql.createPool({
   insecureAuth: true
 });
 setInterval(() => {
-  pool.query("SELECT 1", (err, rows) => {
+  con.query("SELECT 1", (err, rows) => {
     if (err) throw err;
   });
 }, 1000);
@@ -32,4 +32,4 @@ setInterval(() => {
 //   }
 // });
 
-module.exports = pool;
+module.exports = con;
