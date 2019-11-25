@@ -71,7 +71,6 @@ app.post("/add_company_clients", upload.single("file"), function(req, res) {
         EmploymentCategoryId: req.body.EmploymentCategoryId,
         Occupation: req.body.Occupation,
         EmploymentStation: req.body.EmploymentStation,
-        EncodedImageString: req.body.EncodedImageString,
         ClientRegistrationDate: date
       };
 
