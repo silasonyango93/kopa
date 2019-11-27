@@ -30,7 +30,7 @@ module.exports = class CompanyClientsModel {
 
   static get_all_records() {
     return new Promise(function(resolve, reject) {
-      var myPromise = ModelMaster.selectAll(TableName);
+      var myPromise = ModelMaster.selectAllFromSystemClientsInnerJoinEmploymentCategories(TableName);
       myPromise.then(
         function(result) {
           resolve(result);

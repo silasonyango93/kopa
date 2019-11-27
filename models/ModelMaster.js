@@ -1091,7 +1091,7 @@ with no WHERE clause(No condition)
   static searchClientsByAnyParameter(searchParameter) {
     return new Promise(function(resolve, reject) {
       con.query(
-        "SELECT * FROM company_clients WHERE ClientFirstName LIKE '%"+searchParameter+"%' OR ClientMiddleName LIKE '%"+searchParameter+"%' OR ClientSurname LIKE '%"+searchParameter+"%' OR ClientNationalId LIKE '%"+searchParameter+"%' OR ClientDOB LIKE '%"+searchParameter+"%' OR ClientPhoneNumber LIKE '%"+searchParameter+"%' \n" +
+        "SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE ClientFirstName LIKE '%"+searchParameter+"%' OR ClientMiddleName LIKE '%"+searchParameter+"%' OR ClientSurname LIKE '%"+searchParameter+"%' OR ClientNationalId LIKE '%"+searchParameter+"%' OR ClientDOB LIKE '%"+searchParameter+"%' OR ClientPhoneNumber LIKE '%"+searchParameter+"%' \n" +
         "OR ClientPhysicalAddress LIKE '%"+searchParameter+"%' OR ClientEmail LIKE '%"+searchParameter+"%';",
         function(err, result) {
           if (err) {
@@ -1103,4 +1103,25 @@ with no WHERE clause(No condition)
       );
     });
   }
+
+
+  static selectAllFromSystemClientsInnerJoinEmploymentCategories(tableName) {
+    return new Promise(function(resolve, reject) {
+      con.query("SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId;", function(
+        err,
+        result,
+        fields
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          var returned_value_ = result;
+          resolve(returned_value_);
+        }
+      });
+    });
+  }
 };
+
+
+
