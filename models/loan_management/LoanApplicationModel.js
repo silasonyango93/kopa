@@ -171,4 +171,21 @@ module.exports = class LoanApplicationModel {
             );
         });
     }
+
+    static updateClientLoanStatus(jsonObject,ClientId,CompanyId) {
+        return new Promise(function(resolve, reject) {
+            var myPromise = ModelMaster.updateClientLoanStatus(jsonObject,ClientId,CompanyId);
+
+            myPromise.then(
+              function(result) {
+                  resolve(result);
+              },
+              function(err) {
+                  reject(err);
+              }
+            );
+        });
+    }
+
+
 };

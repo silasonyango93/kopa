@@ -169,4 +169,20 @@ module.exports = class LoanApplicationController {
         });
     }
 
+
+    static updateClientLoanStatus(jsonObject,ClientId,CompanyId) {
+        return new Promise(function(resolve, reject) {
+            var myPromise = LoanApplicationModel.updateClientLoanStatus(jsonObject,ClientId,CompanyId);
+
+            myPromise.then(
+              function(result) {
+                  resolve(result);
+              },
+              function(err) {
+                  reject(err);
+              }
+            );
+        });
+    }
+
 };

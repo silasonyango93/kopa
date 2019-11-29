@@ -20,10 +20,12 @@ router.post("/add_loan_repayment_installments", urlencodedParser, function(
     request,
     response
 ) {
+  var date = new Date();
+  date.setHours(date.getHours() + 0);
     var jsonObject_ = {
         LoanApplicationId: request.body.LoanApplicationId,
         InstallmentAmount: request.body.InstallmentAmount,
-        InstallmentDate: request.body.InstallmentDate
+        InstallmentDate: date
     };
 
     var myPromise = LoanRepaymentInstallmentsController.insert(jsonObject_);

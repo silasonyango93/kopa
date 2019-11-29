@@ -281,4 +281,36 @@ router.post("/pending_loan_with_current_company", urlencodedParser, function(
     );
 });
 
+
+router.post("/update_client_loan_status", urlencodedParser, function(
+  request,
+  response
+) {
+    var date = new Date();
+    date.setHours(date.getHours() + 0);
+
+    var ClientId = request.body.ClientId;
+    var CompanyId = request.body.CompanyId;
+
+    var jsonObject = {
+        IsFullyPaid: request.body.IsFullyPaid,
+        RemainingLoanAmount: request.body.RemainingLoanAmount
+    };
+
+    var myPromise = LoanApplicationController.updateClientLoanStatus(jsonObject,ClientId,CompanyId);
+
+    myPromise.then(
+      function(result) {
+          var response_object = { results: result };
+          response.send(response_object);
+      },
+      function(err) {
+          console.log(err);
+          response.send("An error occurred");
+      }
+    );
+});
+
+
+
 module.exports = router;

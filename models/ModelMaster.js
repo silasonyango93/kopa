@@ -1143,6 +1143,26 @@ with no WHERE clause(No condition)
 
 
 
+  static updateClientLoanStatus(jsonObject,ClientId,CompanyId) {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "UPDATE loan_application SET ? WHERE ClientId ="+ClientId+" AND CompanyId ="+CompanyId+";",
+        jsonObject,
+        function(err) {
+          if (err) {
+            reject(err);
+          } else {
+
+          var returned_value_ = {
+            success: true,
+            message: "Record updated succesfully."
+          };
+          resolve(returned_value_);}
+        }
+      );
+    });
+  }
+
 };
 
 
