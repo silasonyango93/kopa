@@ -258,4 +258,27 @@ router.post("/loan_application_user_specific_query", urlencodedParser, function(
     );
 });
 
+
+
+router.post("/pending_loan_with_current_company", urlencodedParser, function(
+  request,
+  response
+) {
+    var clientId = request.body.clientId;
+    var companyId = request.body.companyId;
+
+    var myPromise = LoanApplicationController.getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId);
+
+    myPromise.then(
+      function(result) {
+          var response_object = { results: result };
+          response.send(response_object);
+      },
+      function(err) {
+          response.send("An error occurred");
+          console.log(err);
+      }
+    );
+});
+
 module.exports = router;

@@ -156,4 +156,19 @@ module.exports = class LoanApplicationModel {
             );
         });
     }
+
+
+    static getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId) {
+        return new Promise(function(resolve, reject) {
+            var myPromise = ModelMaster.getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId);
+            myPromise.then(
+              function(result) {
+                  resolve(result);
+              },
+              function(err) {
+                  reject(err);
+              }
+            );
+        });
+    }
 };

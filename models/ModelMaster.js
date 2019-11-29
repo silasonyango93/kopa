@@ -1105,7 +1105,7 @@ with no WHERE clause(No condition)
   }
 
 
-  static selectAllFromSystemClientsInnerJoinEmploymentCategories(tableName) {
+  static selectAllFromSystemClientsInnerJoinEmploymentCategories() {
     return new Promise(function(resolve, reject) {
       con.query("SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId;", function(
         err,
@@ -1121,7 +1121,32 @@ with no WHERE clause(No condition)
       });
     });
   }
+
+
+  static getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId) {
+    return new Promise(function(resolve, reject) {
+      con.query("SELECT * FROM loan_application WHERE ClientId ="+clientId+" AND CompanyId ="+companyId+" AND IsFullyPaid =0;", function(
+        err,
+        result,
+        fields
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          var returned_value_ = result;
+          resolve(returned_value_);
+        }
+      });
+    });
+  }
+
+
+
+
 };
+
+
+
 
 
 
