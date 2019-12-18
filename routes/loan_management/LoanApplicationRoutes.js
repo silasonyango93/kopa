@@ -170,6 +170,34 @@ router.post("/update_individual_loan_application", urlencodedParser, function(
     );
 });
 
+router.post("/deduct_paid_installment", urlencodedParser, function(request, response) {
+  var column_name = request.body.ColumnName;
+  var value_ = request.body.ColumnValue;
+
+  var jsonObject_ = {
+    IsFullyPaid: request.body.IsFullyPaid,
+    RemainingLoanAount: request.body.RemainingLoanAount
+  };
+
+  var myPromise = LoanApplicationController.individual_record_update(
+    column_name,
+    value_,
+    jsonObject_
+  );
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+
 router.post("/delete_individual_loan_application", urlencodedParser, function(
     request,
     response
