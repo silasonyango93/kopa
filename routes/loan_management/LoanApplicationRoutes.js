@@ -176,7 +176,7 @@ router.post("/deduct_paid_installment", urlencodedParser, function(request, resp
 
   var jsonObject_ = {
     IsFullyPaid: request.body.IsFullyPaid,
-    RemainingLoanAount: request.body.RemainingLoanAount
+      RemainingLoanAmount: request.body.RemainingLoanAmount
   };
 
   var myPromise = LoanApplicationController.individual_record_update(
