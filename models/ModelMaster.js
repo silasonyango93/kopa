@@ -300,7 +300,10 @@ individual_update() updates a specific record(s).
                   reject(err);
                 }
 
-                var returned_value_ = "Update was Successful";
+                var returned_value_ = {
+                  success: true,
+                  message: "Record updated succesfully."
+                };
                 resolve(returned_value_);
               }
             );
