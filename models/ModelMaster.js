@@ -1166,6 +1166,27 @@ with no WHERE clause(No condition)
     });
   }
 
+
+  static getACompaniesPendingLoans(companyId) {
+    return new Promise(function(resolve, reject) {
+      con.query("SELECT * FROM loan_application WHERE CompanyId ="+companyId+" AND IsFullyPaid =0;", function(
+        err,
+        result,
+        fields
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          var returned_value_ = result;
+          resolve(returned_value_);
+        }
+      });
+    });
+  }
+
+
+
+
 };
 
 

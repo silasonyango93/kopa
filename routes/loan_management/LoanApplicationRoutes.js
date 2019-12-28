@@ -373,4 +373,26 @@ router.post("/update_client_loan_status", urlencodedParser, function(
 
 
 
+router.post("/get_a_company_pending_loans", urlencodedParser, function(
+  request,
+  response
+) {
+  var companyId = request.body.companyId;
+
+  var myPromise = LoanApplicationController.getACompaniesPendingLoans(companyId);
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+
+
 module.exports = router;

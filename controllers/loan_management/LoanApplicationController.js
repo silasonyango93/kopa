@@ -185,4 +185,22 @@ module.exports = class LoanApplicationController {
         });
     }
 
+
+
+    static getACompaniesPendingLoans(companyId) {
+        return new Promise(function(resolve, reject) {
+            var myPromise = LoanApplicationModel.getACompaniesPendingLoans(companyId);
+
+            myPromise.then(
+              function(result) {
+                  resolve(result);
+              },
+              function(err) {
+                  reject(err);
+              }
+            );
+        });
+    }
+
+
 };
