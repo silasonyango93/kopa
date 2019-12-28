@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/loan_management/LoanApplicationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/loan_management/LoanApplicationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

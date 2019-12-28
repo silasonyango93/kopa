@@ -47,7 +47,6 @@ app.use((req, res, next) => {
 
 app.post("/add_company_clients", upload.single("file"), function(req, res) {
   var file = __dirname + "/uploads/" + req.file.filename;
-  console.log(req);
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
