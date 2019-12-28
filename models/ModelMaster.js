@@ -1167,9 +1167,9 @@ with no WHERE clause(No condition)
   }
 
 
-  static getACompaniesPendingLoans(companyId) {
+  static getACompaniesPendingLoans(companyId,isFullyPaidStatus) {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM loan_application WHERE CompanyId ="+companyId+" AND IsFullyPaid =0;", function(
+      con.query("SELECT * FROM loan_application WHERE CompanyId ="+companyId+" AND IsFullyPaid ="+isFullyPaidStatus+";", function(
         err,
         result,
         fields

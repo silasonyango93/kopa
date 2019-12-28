@@ -378,8 +378,9 @@ router.post("/get_a_company_pending_loans", urlencodedParser, function(
   response
 ) {
   var companyId = request.body.companyId;
+  var isFullyPaidStatus = request.body.isFullyPaidStatus;
 
-  var myPromise = LoanApplicationController.getACompaniesPendingLoans(companyId);
+  var myPromise = LoanApplicationController.getACompaniesPendingLoans(companyId,isFullyPaidStatus);
 
   myPromise.then(
     function(result) {

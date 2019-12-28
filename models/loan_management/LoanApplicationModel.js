@@ -188,9 +188,9 @@ module.exports = class LoanApplicationModel {
     }
 
 
-    static getACompaniesPendingLoans(companyId) {
+    static getACompaniesPendingLoans(companyId,isFullyPaidStatus) {
         return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.getACompaniesPendingLoans(companyId);
+            var myPromise = ModelMaster.getACompaniesPendingLoans(companyId,isFullyPaidStatus);
             myPromise.then(
               function(result) {
                   resolve(result);
