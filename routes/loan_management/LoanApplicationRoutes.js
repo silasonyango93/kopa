@@ -396,4 +396,33 @@ router.post("/get_a_company_pending_loans", urlencodedParser, function(
 
 
 
+router.post("/register_bad_debt", urlencodedParser, function(request, response) {
+  var column_name = request.body.ColumnName;
+  var value_ = request.body.ColumnValue;
+
+  var jsonObject_ = {
+    IsFullyPaid: request.body.IsFullyPaid
+  };
+
+  var myPromise = LoanApplicationController.individual_record_update(
+    column_name,
+    value_,
+    jsonObject_
+  );
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+
+
+
 module.exports = router;
