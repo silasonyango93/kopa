@@ -1186,6 +1186,24 @@ with no WHERE clause(No condition)
 
 
 
+  static getACompaniesSystemUsers(companyId) {
+    return new Promise(function(resolve, reject) {
+      con.query("SELECT * FROM companies INNER JOIN company_branches ON companies.CompanyId = company_branches.CompanyId INNER JOIN company_system_users ON company_branches.CompanyBranchId = company_system_users.CompanyBranchId WHERE companies.CompanyId ="+companyId+";", function(
+        err,
+        result,
+        fields
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          var returned_value_ = result;
+          resolve(returned_value_);
+        }
+      });
+    });
+  }
+
+
 
 };
 

@@ -156,4 +156,22 @@ module.exports = class CompanySystemUsersModel {
       );
     });
   }
+
+  static getACompaniesSystemUsers(companyId) {
+    return new Promise(function(resolve, reject) {
+      var myModelMasterPromise = ModelMaster.getACompaniesSystemUsers(
+        companyId
+      );
+      myModelMasterPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
+
+
 };

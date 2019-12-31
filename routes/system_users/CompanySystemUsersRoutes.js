@@ -285,4 +285,28 @@ router.post("/get_system_user_company_details", urlencodedParser, function(
   );
 });
 
+
+
+router.post("/get_a_companies_system_users", urlencodedParser, function(
+  request,
+  response
+) {
+  var companyId = request.body.companyId;
+
+  var myCompanySystemUsersControllerObjectPromise = CompanySystemUsersController.getACompaniesSystemUsers(
+    companyId
+  );
+
+  myCompanySystemUsersControllerObjectPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
 module.exports = router;
