@@ -155,4 +155,23 @@ module.exports = class CompanyOwnersModel {
       );
     });
   }
+
+
+  static getAllCompanyOwnersAndTheirDetails() {
+    return new Promise(function(resolve, reject) {
+      var myModelMasterPromise = ModelMaster.getAllCompanyOwnersAndTheirDetails();
+      myModelMasterPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
+
+
 };
+
+

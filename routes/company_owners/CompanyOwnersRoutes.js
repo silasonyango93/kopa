@@ -281,4 +281,25 @@ router.post("/get_company_owner_company_details", urlencodedParser, function(
   );
 });
 
+
+router.post("/get_all_company_owners_and_their_details", urlencodedParser, function(
+  request,
+  response
+) {
+
+  var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.getAllCompanyOwnersAndTheirDetails();
+  myCompanyOwnersControllerObjectPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+
+
 module.exports = router;

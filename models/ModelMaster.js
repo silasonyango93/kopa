@@ -1205,6 +1205,22 @@ with no WHERE clause(No condition)
 
 
 
+  static getAllCompanyOwnersAndTheirDetails() {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "SELECT * FROM company_ownership_groups INNER JOIN ownership_groups_company_owners_rship ON company_ownership_groups.CompanyOwnershipGroupId = ownership_groups_company_owners_rship.CompanyOwnershipGroupId INNER JOIN company_owners ON ownership_groups_company_owners_rship.CompanyOwnerId = company_owners.CompanyOwnerId INNER JOIN companies ON company_ownership_groups.CompanyOwnershipGroupId = companies.CompanyOwnershipGroupId;",
+        function(err, result) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(result);
+          }
+        }
+      );
+    });
+  }
+
+
 };
 
 
