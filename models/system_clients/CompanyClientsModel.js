@@ -170,4 +170,19 @@ module.exports = class CompanyClientsModel {
       );
     });
   }
+
+
+  static getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

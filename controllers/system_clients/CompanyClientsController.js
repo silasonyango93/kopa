@@ -174,4 +174,20 @@ module.exports = class CompanyClientsController {
       );
     });
   }
+
+
+  static getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = CompanyClientsModel.getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus);
+
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

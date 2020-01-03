@@ -382,4 +382,26 @@ router.post("/client_any_search", urlencodedParser, function(
   );
 });
 
+
+router.post("/get_a_companies_clients_with_pending_loans", urlencodedParser, function(
+  request,
+  response
+) {
+  var companyId = request.body.companyId;
+  var isFullyPaidStatus = request.body.isFullyPaidStatus;
+
+  var myPromise = CompanyClientsController.getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus);
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
 module.exports = router;

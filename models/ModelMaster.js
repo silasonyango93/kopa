@@ -1221,6 +1221,24 @@ with no WHERE clause(No condition)
   }
 
 
+  static getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus) {
+    return new Promise(function(resolve, reject) {
+      con.query("SELECT * FROM company_clients INNER JOIN loan_application ON company_clients.ClientId = loan_application.ClientId WHERE loan_application.CompanyId ="+companyId+" AND loan_application.IsFullyPaid ="+isFullyPaidStatus+";", function(
+        err,
+        result,
+        fields
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          var returned_value_ = result;
+          resolve(returned_value_);
+        }
+      });
+    });
+  }
+
+
 };
 
 
