@@ -96,6 +96,19 @@ app.get("/display_image", (req, res) => {
 });
 
 
+app.post("/test_upload", upload.single("file"), function(req, res) {
+  var file = __dirname + "/uploads/" + req.file.filename;
+  fs.rename(req.file.path, file, function(err) {
+    if (err) {
+      console.log(err);
+      res.send("All Bad");
+    } else {
+      res.send("All good");
+    }
+  });
+});
+
+
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start User Management*/
 
 app.use(require("./routes/company_owners/CompanyOwnersRoutes.js"));
