@@ -45,7 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/add_company_clients", upload.single("file"), function(req, res) {
+app.post("/add_company_clients__OLD", upload.single("file"), function(req, res) {
   var file = __dirname + "/uploads/" + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
@@ -96,15 +96,14 @@ app.get("/display_image", (req, res) => {
 });
 
 
-app.post("/test_upload", upload.single("file"), function(req, res) {
+app.post("/upload_images", upload.single("file"), function(req, res) {
   var file = __dirname + "/uploads/" + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
-      res.send("All Bad");
+      res.send(500);
     } else {
-      res.send("All good");
-      console.log(req.file.filename);
+      res.send(req.file.filename);
     }
   });
 });
@@ -172,5 +171,5 @@ const server = app.listen(80, () => {
   const host = server.address().address;
   const port = server.address().port;
 
-  console.log(`Service listening at http://${host}:${port}`);
+  console.log(`Service listening at port ${port}`);
 });

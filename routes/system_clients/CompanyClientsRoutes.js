@@ -37,24 +37,28 @@ router.get("/display_client_photo", (req, res) => {
 
 });
 
-router.post("/add_company_clients__OLD", urlencodedParser, function(
+router.post("/add_company_clients", urlencodedParser, function(
   request,
   response
 ) {
   var date = new Date();
   date.setHours(date.getHours() + 0);
   var jsonObject_ = {
-    ClientUniqueId: request.body.ClientUniqueId,
-    ClientFirstName: request.body.ClientFirstName,
-    ClientMiddleName: request.body.ClientMiddleName,
-    ClientSurname: request.body.ClientSurname,
-    ClientNationalId: request.body.ClientNationalId,
-    ClientProfilePicName: request.body.ClientProfilePicName,
-    GenderId: request.body.GenderId,
-    ClientDOB: request.body.ClientDOB,
-    ClientPhoneNumber: request.body.ClientPhoneNumber,
-    ClientPhysicalAddress: request.body.ClientPhysicalAddress,
-    ClientEmail: request.body.ClientEmail,
+    ClientUniqueId: req.body.ClientUniqueId,
+    ClientFirstName: req.body.ClientFirstName,
+    ClientMiddleName: req.body.ClientMiddleName,
+    ClientSurname: req.body.ClientSurname,
+    ClientNationalId: req.body.ClientNationalId,
+    ClientProfilePicName: req.body.ClientProfilePicName,
+    GenderId: req.body.GenderId,
+    ClientDOB: req.body.ClientDOB,
+    ClientPhoneNumber: req.body.ClientPhoneNumber,
+    ClientPhysicalAddress: req.body.ClientPhysicalAddress,
+    ClientEmail: req.body.ClientEmail,
+    EmploymentStatus: req.body.EmploymentStatus,
+    EmploymentCategoryId: req.body.EmploymentCategoryId,
+    Occupation: req.body.Occupation,
+    EmploymentStation: req.body.EmploymentStation,
     ClientRegistrationDate: date
   };
 
