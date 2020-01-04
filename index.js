@@ -104,6 +104,7 @@ app.post("/test_upload", upload.single("file"), function(req, res) {
       res.send("All Bad");
     } else {
       res.send("All good");
+      console.log(req.file.filename);
     }
   });
 });
