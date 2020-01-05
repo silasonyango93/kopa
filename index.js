@@ -104,6 +104,7 @@ app.post("/upload_images", upload.single("file"), function(req, res) {
       res.send(500);
     } else {
       res.send(req.file.filename);
+      console.log(req.file.filename);
     }
   });
 });
