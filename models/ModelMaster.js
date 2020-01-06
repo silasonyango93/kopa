@@ -258,7 +258,10 @@ to make.
         if (err) {
           reject(err);
         } else {
-          var returned_value_ = "Update was Successful";
+          var returned_value_ = {
+            success: true,
+            message: "Record updated succesfully."
+          };
           resolve(returned_value_);
         }
       });
