@@ -154,6 +154,10 @@ router.post("/update_company_clients_employment_details", urlencodedParser, func
   request,
   response
 ) {
+
+  var column_name = request.body.ColumnName;
+  var value_ = request.body.ColumnValue;
+
   var jsonObject_ = {
     EmploymentStatus: request.body.EmploymentStatus,
     EmploymentCategoryId: request.body.EmploymentCategoryId,
@@ -161,7 +165,11 @@ router.post("/update_company_clients_employment_details", urlencodedParser, func
     EmploymentStation: request.body.EmploymentStation,
   };
 
-  var myPromise = CompanyClientsController.batch_update(jsonObject_);
+  var myPromise = CompanyClientsController.individual_record_update(
+    column_name,
+    value_,
+    jsonObject_
+  );
 
   myPromise.then(
     function(result) {
