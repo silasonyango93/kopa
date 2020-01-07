@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 22, 2019 at 12:20 PM
+-- Generation Time: Jan 07, 2020 at 07:35 PM
 -- Server version: 5.7.28-0ubuntu0.16.04.2
 -- PHP Version: 7.0.33-0ubuntu0.16.04.7
 
@@ -175,6 +175,7 @@ CREATE TABLE `loan_application` (
   `CompanyBranchId` int(11) NOT NULL,
   `SystemUserId` int(11) NOT NULL,
   `LoanAmount` int(11) NOT NULL,
+  `InterestRate` double NOT NULL,
   `LoanApplicationDate` datetime NOT NULL,
   `ExpectedSettlementDate` date NOT NULL,
   `LoanRating` float DEFAULT NULL,
