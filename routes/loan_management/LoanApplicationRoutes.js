@@ -28,6 +28,7 @@ router.post("/add_loan_application", urlencodedParser, function(
         CompanyBranchId: request.body.CompanyBranchId,
         SystemUserId: request.body.SystemUserId,
         LoanAmount: request.body.LoanAmount,
+        InterestRate: request.body.InterestRate,
         ExpectedSettlementDate: request.body.ExpectedSettlementDate,
         LoanRating: request.body.LoanRating,
         IsFullyPaid: request.body.IsFullyPaid,
