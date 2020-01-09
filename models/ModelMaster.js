@@ -1226,7 +1226,7 @@ with no WHERE clause(No condition)
 
   static getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus) {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM company_clients INNER JOIN loan_application ON company_clients.ClientId = loan_application.ClientId WHERE loan_application.CompanyId ="+companyId+" AND loan_application.IsFullyPaid ="+isFullyPaidStatus+";", function(
+      con.query("SELECT * FROM company_clients INNER JOIN loan_application ON company_clients.ClientId = loan_application.ClientId INNER JOIN companies ON loan_application.CompanyId = companies.CompanyId INNER JOIN company_branches ON loan_application.CompanyBranchId = company_branches.CompanyBranchId INNER JOIN employment_categories ON loan_application.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE loan_application.CompanyId ="+companyId+" AND loan_application.IsFullyPaid ="+isFullyPaidStatus+";", function(
         err,
         result,
         fields
