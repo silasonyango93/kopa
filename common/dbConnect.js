@@ -1,16 +1,7 @@
 var mysql = require("mysql");
-var dbcredentials;
-
-dbcredentials = {
-  host: "localhost",
-  user: "silas",
-  password: "8032",
-  database: "kopa",
-  insecureAuth: true
-};
 
 const con = mysql.createPool({
-  host: "localhost",
+  host: "mysql-db",
   user: "silas",
   password: "8032",
   database: "kopa",
@@ -22,14 +13,5 @@ setInterval(() => {
   });
 }, 1000);
 
-// var con = mysql.createConnection(dbcredentials);
-// con.on("error", err => {
-//   console.log("db error", err);
-//   if (err.code === "PROTOCOL_CONNECTION_LOST") {
-//     console.log(err);
-//   } else {
-//     //throw err;
-//   }
-// });
 
 module.exports = con;

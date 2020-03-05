@@ -8,7 +8,7 @@ metadata:
 #    certmanager.k8s.io/cluster-issuer: "letsencrypt-staging"
 spec:
   rules:
-    - host: backend.kopa.icube.ga
+    - host: backend.kopa.kopa.xyz
       http:
         paths:
           - path: /
@@ -26,7 +26,7 @@ metadata:
 #    certmanager.k8s.io/cluster-issuer: "letsencrypt-staging"
 spec:
   rules:
-    - host: pma.kopa.icube.ga
+    - host: pma.kopa.kopa.xyz
       http:
         paths:
           - path: /

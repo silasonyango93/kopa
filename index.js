@@ -20,7 +20,7 @@ var port = 80;
 
 app.use(cors());
 dbcredentials = {
-  host: "localhost",
+  host: "mysql-db",
   user: "silas",
   password: "8032",
   database: "kopa",
@@ -166,9 +166,9 @@ app.use(function(err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 
-var port = 80;
 
-const server = app.listen(80, () => {
+
+const server = app.listen(8080, () => {
   const host = server.address().address;
   const port = server.address().port;
 
