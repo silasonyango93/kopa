@@ -21,6 +21,10 @@ spec:
         - name: mysql-db
           imagePullPolicy: Always
           image: mysql:5.7
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-storage
+              subPath: mysql
           ports:
             - containerPort: 3306
           env:
@@ -32,3 +36,7 @@ spec:
               value: silas
             - name: MYSQL_PASSWORD
               value: "8032"
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc

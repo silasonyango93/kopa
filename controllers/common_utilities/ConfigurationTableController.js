@@ -39,6 +39,7 @@ module.exports = class ConfigurationTableController {
     });
   }
 
+
   static get_specific_records(ColumnName, value_) {
     return new Promise(function(resolve, reject) {
       var myPromise = ConfigurationTableModel.get_specific_records(

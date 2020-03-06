@@ -14,7 +14,6 @@ var fs = require("fs");
 const multer = require("multer");
 const upload = multer({ dest: __dirname + "/uploads/" });
 var dbcredentials;
-const CompanyClientsController = require("./controllers/system_clients/CompanyClientsController.js");
 var cors = require("cors");
 var port = 80;
 
@@ -40,8 +39,8 @@ app.use((req, res, next) => {
       //throw err;
     }
   });
-  console.log("Connection established");
 
+  console.log("Connection established");
   next();
 });
 

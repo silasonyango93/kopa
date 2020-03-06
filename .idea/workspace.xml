@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c7421812-75c3-4c93-8258-122a1b8bed28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/dbConnect.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/dbConnect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/common_utilities/ConfigurationTableController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/common_utilities/ConfigurationTableController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/uat/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/uat/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/uat/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/uat/ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/system_admin/AdminRegistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/routes/system_admin/AdminRegistration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/uat/mysql.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/uat/mysql.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ModelMaster.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/ModelMaster.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +171,8 @@
       <workItem from="1578150529774" duration="5294000" />
       <workItem from="1578322756319" duration="3340000" />
       <workItem from="1578658054485" duration="707000" />
-      <workItem from="1583408700424" duration="5767000" />
+      <workItem from="1583408700424" duration="9130000" />
+      <workItem from="1583495877839" duration="2171000" />
     </task>
     <servers />
   </component>
