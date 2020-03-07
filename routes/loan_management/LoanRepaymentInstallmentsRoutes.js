@@ -5,6 +5,7 @@ calls from the client and passes the calls down to the
 "LoanRepaymentInstallmentsController" class
 */
 
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -13,134 +14,146 @@ const LoanRepaymentInstallmentsController = require("../../controllers/loan_mana
 
 //Middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {
-    next();
+  next();
 });
 
 router.post("/add_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
+  request,
+  response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
-    var jsonObject_ = {
-        LoanApplicationId: request.body.LoanApplicationId,
-        InstallmentAmount: request.body.InstallmentAmount,
-        InstallmentDate: date
-    };
+  date.setHours(date.getHours() + 3);
+  var jsonObject_ = {
+    LoanApplicationId: request.body.LoanApplicationId,
+    SessionLogId: request.body.SessionLogId,
+    InstallmentAmount: request.body.InstallmentAmount,
+    InstallmentDate: date
+  };
 
-    var myPromise = LoanRepaymentInstallmentsController.insert(jsonObject_);
+  var myPromise = LoanRepaymentInstallmentsController.insert(jsonObject_);
 
-    myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            console.log(err);
-            response.send("An error occurred");
-        }
-    );
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      console.log(err);
+      response.send("An error occurred");
+    }
+  );
 });
 
 router.post("/get_all_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
+  request,
+  response
 ) {
-    var myPromise = LoanRepaymentInstallmentsController.get_all_records();
+  var myPromise = LoanRepaymentInstallmentsController.get_all_records();
 
-    myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            console.log(err);
-            response.send("An error occurred");
-        }
-    );
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      console.log(err);
+      response.send("An error occurred");
+    }
+  );
 });
 
-router.post("/get_specific_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
-) {
+router.post(
+  "/get_specific_loan_repayment_installments",
+  urlencodedParser,
+  function(request, response) {
     var mKey = request.body.column_name;
     //var mValue=parseInt(request.query.search_value, 10);
     var mValue = request.body.search_value;
 
-    var myPromise = LoanRepaymentInstallmentsController.get_specific_records(mKey, mValue);
+    var myPromise = LoanRepaymentInstallmentsController.get_specific_records(
+      mKey,
+      mValue
+    );
 
     myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            response.send("An error occurred");
-            console.log(err);
-        }
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
     );
-});
+  }
+);
 
 router.post("/update_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
+  request,
+  response
 ) {
-    var jsonObject_ = {
-        LoanApplicationId: request.body.LoanApplicationId,
-        InstallmentAmount: request.body.InstallmentAmount,
-        InstallmentDate: request.body.InstallmentDate
-    };
+  var date = new Date();
+  date.setHours(date.getHours() + 3);
+  var jsonObject_ = {
+    LoanApplicationId: request.body.LoanApplicationId,
+    SessionLogId: request.body.SessionLogId,
+    InstallmentAmount: request.body.InstallmentAmount,
+    InstallmentDate: date
+  };
 
-    var myPromise = LoanRepaymentInstallmentsController.batch_update(jsonObject_);
+  var myPromise = LoanRepaymentInstallmentsController.batch_update(jsonObject_);
 
-    myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            response.send("An error occurred");
-            console.log(err);
-        }
-    );
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
 });
 
-router.post("/update_individual_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
-) {
+router.post(
+  "/update_individual_loan_repayment_installments",
+  urlencodedParser,
+  function(request, response) {
+    var date = new Date();
+    date.setHours(date.getHours() + 3);
     var column_name = request.body.ColumnName;
     var value_ = request.body.ColumnValue;
 
     var jsonObject_ = {
-        LoanApplicationId: request.body.LoanApplicationId,
-        InstallmentAmount: request.body.InstallmentAmount,
-        InstallmentDate: request.body.InstallmentDate
+      LoanApplicationId: request.body.LoanApplicationId,
+      SessionLogId: request.body.SessionLogId,
+      InstallmentAmount: request.body.InstallmentAmount,
+      InstallmentDate: date
     };
 
     var myPromise = LoanRepaymentInstallmentsController.individual_record_update(
-        column_name,
-        value_,
-        jsonObject_
+      column_name,
+      value_,
+      jsonObject_
     );
 
     myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            response.send("An error occurred");
-            console.log(err);
-        }
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
     );
-});
+  }
+);
 
-router.post("/delete_individual_loan_repayment_installments", urlencodedParser, function(
-    request,
-    response
-) {
+router.post(
+  "/delete_individual_loan_repayment_installments",
+  urlencodedParser,
+  function(request, response) {
     var column_name = request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
     var value_ = request.body.search_value;
@@ -150,54 +163,55 @@ router.post("/delete_individual_loan_repayment_installments", urlencodedParser, 
     var UserId = request.body.UserId;
 
     var myPromise = LoanRepaymentInstallmentsController.delete_user_specic_record(
-        column_name,
-        value_,
-        UserIdColumnName,
-        UserId
+      column_name,
+      value_,
+      UserIdColumnName,
+      UserId
     );
 
     myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            response.send("An error occurred");
-            console.log(err);
-        }
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
     );
-});
-
-router.post(
-    "/get_number_of_loan_repayment_installments_records",
-    urlencodedParser,
-    function(request, response) {
-        var column_name = request.body.column_name;
-        //var mValue=parseInt(request.body.search_value, 10);
-        var value_ = request.body.search_value;
-
-        var myPromise = LoanRepaymentInstallmentsController.get_number_of_records(
-            column_name,
-            value_
-        );
-
-        myPromise.then(
-            function(result) {
-                var response_object = { results: result };
-                response.send(response_object);
-            },
-            function(err) {
-                response.send("An error occurred");
-                console.log(err);
-            }
-        );
-    }
+  }
 );
 
-router.post("/loan_repayment_installments_user_specific_query", urlencodedParser, function(
-    request,
-    response
-) {
+router.post(
+  "/get_number_of_loan_repayment_installments_records",
+  urlencodedParser,
+  function(request, response) {
+    var column_name = request.body.column_name;
+    //var mValue=parseInt(request.body.search_value, 10);
+    var value_ = request.body.search_value;
+
+    var myPromise = LoanRepaymentInstallmentsController.get_number_of_records(
+      column_name,
+      value_
+    );
+
+    myPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
+
+router.post(
+  "/loan_repayment_installments_user_specific_query",
+  urlencodedParser,
+  function(request, response) {
     var ColumnName = request.body.ColumnName;
     //var mValue=parseInt(request.body.search_value, 10);
     var value_ = request.body.value_;
@@ -207,22 +221,23 @@ router.post("/loan_repayment_installments_user_specific_query", urlencodedParser
     var UserId = request.body.UserId;
 
     var myPromise = LoanRepaymentInstallmentsController.user_specific_select_query(
-        ColumnName,
-        value_,
-        UserIdColumnName,
-        UserId
+      ColumnName,
+      value_,
+      UserIdColumnName,
+      UserId
     );
 
     myPromise.then(
-        function(result) {
-            var response_object = { results: result };
-            response.send(response_object);
-        },
-        function(err) {
-            response.send("An error occurred");
-            console.log(err);
-        }
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
     );
-});
+  }
+);
 
 module.exports = router;

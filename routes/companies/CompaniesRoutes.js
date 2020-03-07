@@ -5,6 +5,8 @@ calls from the client and passes the calls down to the
 "CompaniesController" class
 */
 
+
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -16,12 +18,9 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.post("/add_companies", urlencodedParser, function(
-  request,
-  response
-) {
+router.post("/add_companies", urlencodedParser, function(request, response) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
   var jsonObject_ = {
     CompanyId: request.body.CompanyId ? request.body.CompanyId : null,
     CompanyOwnershipGroupId: request.body.CompanyOwnershipGroupId,
@@ -83,10 +82,7 @@ router.post("/get_specific_companies", urlencodedParser, function(
   );
 });
 
-router.post("/update_companies", urlencodedParser, function(
-  request,
-  response
-) {
+router.post("/update_companies", urlencodedParser, function(request, response) {
   var jsonObject_ = {
     CompanyId: request.body.CompanyId,
     BranchName: request.body.BranchName,
@@ -169,31 +165,30 @@ router.post("/delete_individual_companies", urlencodedParser, function(
   );
 });
 
-router.post(
-  "/get_number_of_companies_records",
-  urlencodedParser,
-  function(request, response) {
-    var column_name = request.body.column_name;
-    //var mValue=parseInt(request.body.search_value, 10);
-    var value_ = request.body.search_value;
+router.post("/get_number_of_companies_records", urlencodedParser, function(
+  request,
+  response
+) {
+  var column_name = request.body.column_name;
+  //var mValue=parseInt(request.body.search_value, 10);
+  var value_ = request.body.search_value;
 
-    var myPromise = CompaniesController.get_number_of_records(
-      column_name,
-      value_
-    );
+  var myPromise = CompaniesController.get_number_of_records(
+    column_name,
+    value_
+  );
 
-    myPromise.then(
-      function(result) {
-        var response_object = { results: result };
-        response.send(response_object);
-      },
-      function(err) {
-        response.send("An error occurred");
-        console.log(err);
-      }
-    );
-  }
-);
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
 
 router.post("/companies_user_specific_query", urlencodedParser, function(
   request,

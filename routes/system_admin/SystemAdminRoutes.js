@@ -7,6 +7,7 @@ calls from the client and passes the calls down to the
 
 */
 
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -23,7 +24,7 @@ router.post("/system_admin_registration", urlencodedParser, function(
   response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
   var jsonObject_ = {
     AdminFirstName: request.body.AdminFirstName,
     AdminMiddleName: request.body.AdminMiddleName,
@@ -60,7 +61,10 @@ router.get("/admin_login", function(req, res) {
   res.sendFile(__dirname + "/" + "login_form.html");
 });
 
-router.post("/system_admin_login", urlencodedParser, function(request, response) {
+router.post("/system_admin_login", urlencodedParser, function(
+  request,
+  response
+) {
   var jsonObject_ = {
     AttemptedEmail: request.body.AttemptedEmail,
     AttemptedPassword: request.body.AttemptedPassword
@@ -81,7 +85,10 @@ router.post("/system_admin_login", urlencodedParser, function(request, response)
   );
 });
 
-router.post("/get_all_system_admins", urlencodedParser, function(request, response) {
+router.post("/get_all_system_admins", urlencodedParser, function(
+  request,
+  response
+) {
   var mySystemAdminControllerObjectPromise = SystemAdminController.get_all_system_admins();
 
   mySystemAdminControllerObjectPromise.then(
@@ -96,9 +103,12 @@ router.post("/get_all_system_admins", urlencodedParser, function(request, respon
   );
 });
 
-router.post("/update_system_admins", urlencodedParser, function(request, response) {
+router.post("/update_system_admins", urlencodedParser, function(
+  request,
+  response
+) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     FirstName: request.body.FirstName,

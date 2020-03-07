@@ -7,6 +7,7 @@ calls from the client and passes the calls down to the
 
 */
 
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -23,7 +24,7 @@ router.post("/system_user_registration", urlencodedParser, function(
   response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     CompanyBranchId: request.body.CompanyBranchId,
@@ -105,7 +106,7 @@ router.post("/get_all_users", urlencodedParser, function(request, response) {
 
 router.post("/update_users", urlencodedParser, function(request, response) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     FirstName: request.body.FirstName,
@@ -171,7 +172,7 @@ router.post("/update_individual_users", urlencodedParser, function(
   var value_ = request.body.ColumnValue;
 
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     FirstName: request.body.FirstName,
@@ -284,8 +285,6 @@ router.post("/get_system_user_company_details", urlencodedParser, function(
     }
   );
 });
-
-
 
 router.post("/get_a_companies_system_users", urlencodedParser, function(
   request,

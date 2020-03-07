@@ -5,12 +5,13 @@ calls from the client and passes the calls down to the
 "CompanyClientsController" class
 */
 
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 var fs = require("fs");
-const multer = require('multer');
-const upload = multer({dest: __dirname + '/uploads/'});
+const multer = require("multer");
+const upload = multer({ dest: __dirname + "/uploads/" });
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const CompanyClientsController = require("../../controllers/system_clients/CompanyClientsController.js");
 
@@ -19,8 +20,8 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.post('/upload_client_photo', upload.single('file'), function(req, res) {
-  var file = __dirname + '/uploads/' + req.file.filename;
+router.post("/upload_client_photo", upload.single("file"), function(req, res) {
+  var file = __dirname + "/uploads/" + req.file.filename;
   fs.rename(req.file.path, file, function(err) {
     if (err) {
       console.log(err);
@@ -34,7 +35,6 @@ router.post('/upload_client_photo', upload.single('file'), function(req, res) {
 router.get("/display_client_photo", (req, res) => {
   var imageID = req.query.imageID;
   res.send('<img src="/' + imageID + '">');
-
 });
 
 router.post("/add_company_clients", urlencodedParser, function(
@@ -42,7 +42,7 @@ router.post("/add_company_clients", urlencodedParser, function(
   response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
   var jsonObject_ = {
     ClientUniqueId: request.body.ClientUniqueId,
     ClientFirstName: request.body.ClientFirstName,
@@ -148,40 +148,38 @@ router.post("/update_company_clients", urlencodedParser, function(
   );
 });
 
+router.post(
+  "/update_company_clients_employment_details",
+  urlencodedParser,
+  function(request, response) {
+    var column_name = request.body.ColumnName;
+    var value_ = request.body.ColumnValue;
 
+    var jsonObject_ = {
+      EmploymentStatus: request.body.EmploymentStatus,
+      EmploymentCategoryId: request.body.EmploymentCategoryId,
+      Occupation: request.body.Occupation,
+      EmploymentStation: request.body.EmploymentStation
+    };
 
-router.post("/update_company_clients_employment_details", urlencodedParser, function(
-  request,
-  response
-) {
+    var myPromise = CompanyClientsController.individual_record_update(
+      column_name,
+      value_,
+      jsonObject_
+    );
 
-  var column_name = request.body.ColumnName;
-  var value_ = request.body.ColumnValue;
-
-  var jsonObject_ = {
-    EmploymentStatus: request.body.EmploymentStatus,
-    EmploymentCategoryId: request.body.EmploymentCategoryId,
-    Occupation: request.body.Occupation,
-    EmploymentStation: request.body.EmploymentStation,
-  };
-
-  var myPromise = CompanyClientsController.individual_record_update(
-    column_name,
-    value_,
-    jsonObject_
-  );
-
-  myPromise.then(
-    function(result) {
-      var response_object = { results: result };
-      response.send(response_object);
-    },
-    function(err) {
-      response.send("An error occurred");
-      console.log(err);
-    }
-  );
-});
+    myPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
 
 router.post("/update_individual_company_clients", urlencodedParser, function(
   request,
@@ -222,68 +220,68 @@ router.post("/update_individual_company_clients", urlencodedParser, function(
   );
 });
 
-router.post("/update_individual_company_clients_employment_details", urlencodedParser, function(
-  request,
-  response
-) {
-  var column_name = request.body.ColumnName;
-  var value_ = request.body.ColumnValue;
+router.post(
+  "/update_individual_company_clients_employment_details",
+  urlencodedParser,
+  function(request, response) {
+    var column_name = request.body.ColumnName;
+    var value_ = request.body.ColumnValue;
 
-  var jsonObject_ = {
-    EmploymentStatus: request.body.EmploymentStatus,
-    EmploymentCategoryId: request.body.EmploymentCategoryId,
-    Occupation: request.body.Occupation,
-    EmploymentStation: request.body.EmploymentStation,
-  };
+    var jsonObject_ = {
+      EmploymentStatus: request.body.EmploymentStatus,
+      EmploymentCategoryId: request.body.EmploymentCategoryId,
+      Occupation: request.body.Occupation,
+      EmploymentStation: request.body.EmploymentStation
+    };
 
-  var myPromise = CompanyClientsController.individual_record_update(
-    column_name,
-    value_,
-    jsonObject_
-  );
+    var myPromise = CompanyClientsController.individual_record_update(
+      column_name,
+      value_,
+      jsonObject_
+    );
 
-  myPromise.then(
-    function(result) {
-      var response_object = { results: result };
-      response.send(response_object);
-    },
-    function(err) {
-      response.send("An error occurred");
-      console.log(err);
-    }
-  );
-});
+    myPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
 
+router.post(
+  "/update_individual_company_clients_encoded_image",
+  urlencodedParser,
+  function(request, response) {
+    var column_name = request.body.ColumnName;
+    var value_ = request.body.ColumnValue;
 
-router.post("/update_individual_company_clients_encoded_image", urlencodedParser, function(
-  request,
-  response
-) {
-  var column_name = request.body.ColumnName;
-  var value_ = request.body.ColumnValue;
+    var jsonObject_ = {
+      EncodedImageString: request.body.EncodedImageString
+    };
 
-  var jsonObject_ = {
-    EncodedImageString: request.body.EncodedImageString
-  };
+    var myPromise = CompanyClientsController.individual_record_update(
+      column_name,
+      value_,
+      jsonObject_
+    );
 
-  var myPromise = CompanyClientsController.individual_record_update(
-    column_name,
-    value_,
-    jsonObject_
-  );
-
-  myPromise.then(
-    function(result) {
-      var response_object = { results: result };
-      response.send(response_object);
-    },
-    function(err) {
-      response.send("An error occurred");
-      console.log(err);
-    }
-  );
-});
-
+    myPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
 
 router.post("/delete_individual_company_clients", urlencodedParser, function(
   request,
@@ -373,14 +371,14 @@ router.post("/company_clients_user_specific_query", urlencodedParser, function(
   );
 });
 
-
-
 router.post("/client_any_search", urlencodedParser, function(
   request,
   response
 ) {
   var searchParameter = request.body.searchParameter;
-  var myPromise = CompanyClientsController.searchClientsByAnyParameter(searchParameter);
+  var myPromise = CompanyClientsController.searchClientsByAnyParameter(
+    searchParameter
+  );
 
   myPromise.then(
     function(result) {
@@ -394,26 +392,29 @@ router.post("/client_any_search", urlencodedParser, function(
   );
 });
 
+router.post(
+  "/get_a_companies_clients_with_pending_loans",
+  urlencodedParser,
+  function(request, response) {
+    var companyId = request.body.companyId;
+    var isFullyPaidStatus = request.body.isFullyPaidStatus;
 
-router.post("/get_a_companies_clients_with_pending_loans", urlencodedParser, function(
-  request,
-  response
-) {
-  var companyId = request.body.companyId;
-  var isFullyPaidStatus = request.body.isFullyPaidStatus;
+    var myPromise = CompanyClientsController.getACompaniesClientsWithPendingLoans(
+      companyId,
+      isFullyPaidStatus
+    );
 
-  var myPromise = CompanyClientsController.getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus);
-
-  myPromise.then(
-    function(result) {
-      var response_object = { results: result };
-      response.send(response_object);
-    },
-    function(err) {
-      response.send("An error occurred");
-      console.log(err);
-    }
-  );
-});
+    myPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
 
 module.exports = router;

@@ -7,6 +7,8 @@ calls from the client and passes the calls down to the
 
 */
 
+
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -23,7 +25,7 @@ router.post("/company_owner_registration", urlencodedParser, function(
   response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     OwnerFirstName: request.body.OwnerFirstName,
@@ -104,7 +106,7 @@ router.post("/get_all_company_owners", urlencodedParser, function(
 
 router.post("/update_users", urlencodedParser, function(request, response) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
 
   var jsonObject_ = {
     FirstName: request.body.FirstName,
@@ -262,13 +264,14 @@ router.post(
   }
 );
 
-
 router.post("/get_company_owner_company_details", urlencodedParser, function(
   request,
   response
 ) {
   var companyOwnerId = request.body.companyOwnerId;
-  var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.getCompanyOwnersCompanyDetails(companyOwnerId);
+  var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.getCompanyOwnersCompanyDetails(
+    companyOwnerId
+  );
   myCompanyOwnersControllerObjectPromise.then(
     function(result) {
       var response_object = { results: result };
@@ -281,25 +284,22 @@ router.post("/get_company_owner_company_details", urlencodedParser, function(
   );
 });
 
-
-router.post("/get_all_company_owners_and_their_details", urlencodedParser, function(
-  request,
-  response
-) {
-
-  var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.getAllCompanyOwnersAndTheirDetails();
-  myCompanyOwnersControllerObjectPromise.then(
-    function(result) {
-      var response_object = { results: result };
-      response.send(response_object);
-    },
-    function(err) {
-      response.send("An error occurred");
-      console.log(err);
-    }
-  );
-});
-
-
+router.post(
+  "/get_all_company_owners_and_their_details",
+  urlencodedParser,
+  function(request, response) {
+    var myCompanyOwnersControllerObjectPromise = CompanyOwnersController.getAllCompanyOwnersAndTheirDetails();
+    myCompanyOwnersControllerObjectPromise.then(
+      function(result) {
+        var response_object = { results: result };
+        response.send(response_object);
+      },
+      function(err) {
+        response.send("An error occurred");
+        console.log(err);
+      }
+    );
+  }
+);
 
 module.exports = router;

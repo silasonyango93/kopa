@@ -5,6 +5,7 @@ calls from the client and passes the calls down to the
 "CompanyBranchesController" class
 */
 
+
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -21,7 +22,7 @@ router.post("/add_company_branches", urlencodedParser, function(
   response
 ) {
   var date = new Date();
-  date.setHours(date.getHours() + 0);
+  date.setHours(date.getHours() + 3);
   var jsonObject_ = {
     CompanyId: request.body.CompanyId,
     BranchName: request.body.BranchName,
