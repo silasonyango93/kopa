@@ -22,8 +22,7 @@ router.post("/add_session_logs", urlencodedParser, function(request, response) {
   date.setHours(date.getHours() + 3);
   var jsonObject_ = {
     SystemUserId: request.body.SystemUserId,
-    SessionStartDate: date,
-    SessionEndDate: request.body.SessionEndDate
+    SessionStartDate: date
   };
 
   var myPromise = SessionLogsController.insert(jsonObject_);
@@ -108,13 +107,13 @@ router.post("/update_individual_session_logs", urlencodedParser, function(
   request,
   response
 ) {
+  var date = new Date();
+  date.setHours(date.getHours() + 3);
   var column_name = request.body.ColumnName;
   var value_ = request.body.ColumnValue;
 
   var jsonObject_ = {
-    SystemUserId: request.body.SystemUserId,
-    SessionStartDate: request.body.SessionStartDate,
-    SessionEndDate: request.body.SessionEndDate
+    SessionEndDate: date
   };
 
   var myPromise = SessionLogsController.individual_record_update(
