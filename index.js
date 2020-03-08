@@ -129,6 +129,7 @@ app.use(
 app.use(require("./routes/companies/CompanyBranchesRoutes.js"));
 app.use(require("./routes/companies/CompaniesRoutes.js"));
 app.use(require("./routes/system_clients/CompanyClientsRoutes.js"));
+app.use(require("./routes/system_clients/CustomerRegistrationRoutes.js"));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End User Management*/
 
