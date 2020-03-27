@@ -94,6 +94,11 @@ app.get("/display_image", (req, res) => {
   res.send('<img src="/' + imageID + '">');
 });
 
+app.get("/web_display_image", (req, res) => {
+  var imageID = req.query.imageID;
+  res.sendFile(path.join(__dirname, "/uploads/" + imageID));
+});
+
 
 app.post("/upload_images", upload.single("file"), function(req, res) {
   var file = __dirname + "/uploads/" + req.file.filename;
