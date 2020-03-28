@@ -11,196 +11,216 @@ const ModelMaster = require("../ModelMaster.js");
 const TableName = "loan_application";
 
 module.exports = class LoanApplicationModel {
-    constructor() {}
+  constructor() {}
 
-    static insert(jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.insert(TableName, jsonObject_);
+  static insert(jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.insert(TableName, jsonObject_);
 
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_all_records() {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.selectAll(TableName);
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_all_records() {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.selectAll(TableName);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_specific_records(ColumnName, value_) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.selectSpecific(TableName, ColumnName, value_);
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_specific_records(ColumnName, value_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.selectSpecific(TableName, ColumnName, value_);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static batch_update(jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.batch_update(TableName, jsonObject_);
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static batch_update(jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.batch_update(TableName, jsonObject_);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static individual_record_update(ColumnName, value_, jsonObject_) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.individual_update(
-                TableName,
-                jsonObject_,
-                ColumnName,
-                value_
-            );
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static individual_record_update(ColumnName, value_, jsonObject_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.individual_update(
+        TableName,
+        jsonObject_,
+        ColumnName,
+        value_
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static delete_user_specic_record(
+  static delete_user_specic_record(
+    ColumnName,
+    value_,
+    UserIdColumnName,
+    UserId
+  ) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.delete(
+        TableName,
         ColumnName,
         value_,
         UserIdColumnName,
         UserId
-    ) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.delete(
-                TableName,
-                ColumnName,
-                value_,
-                UserIdColumnName,
-                UserId
-            );
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static get_number_of_records(ColumnName, value_) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.get_number_of_records(
-                TableName,
-                ColumnName,
-                value_
-            );
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+  static get_number_of_records(ColumnName, value_) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.get_number_of_records(
+        TableName,
+        ColumnName,
+        value_
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static user_specific_select_query(
+  static user_specific_select_query(
+    ColumnName,
+    value_,
+    UserIdColumnName,
+    UserId
+  ) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.user_specific_select_query(
+        TableName,
         ColumnName,
         value_,
         UserIdColumnName,
         UserId
-    ) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.user_specific_select_query(
-                TableName,
-                ColumnName,
-                value_,
-                UserIdColumnName,
-                UserId
-            );
-            myPromise.then(
-                function(result) {
-                    resolve(result);
-                },
-                function(err) {
-                    reject(err);
-                }
-            );
-        });
-    }
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
+  static getIfClientHasIncompleteLoanWithCurrentCompany(clientId, companyId) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.getIfClientHasIncompleteLoanWithCurrentCompany(
+        clientId,
+        companyId
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-    static getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId);
-            myPromise.then(
-              function(result) {
-                  resolve(result);
-              },
-              function(err) {
-                  reject(err);
-              }
-            );
-        });
-    }
+  static updateClientLoanStatus(jsonObject, ClientId, CompanyId) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.updateClientLoanStatus(
+        jsonObject,
+        ClientId,
+        CompanyId
+      );
 
-    static updateClientLoanStatus(jsonObject,ClientId,CompanyId) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.updateClientLoanStatus(jsonObject,ClientId,CompanyId);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-            myPromise.then(
-              function(result) {
-                  resolve(result);
-              },
-              function(err) {
-                  reject(err);
-              }
-            );
-        });
-    }
+  static getACompaniesPendingLoans(companyId, isFullyPaidStatus) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.getACompaniesPendingLoans(
+        companyId,
+        isFullyPaidStatus
+      );
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 
-
-    static getACompaniesPendingLoans(companyId,isFullyPaidStatus) {
-        return new Promise(function(resolve, reject) {
-            var myPromise = ModelMaster.getACompaniesPendingLoans(companyId,isFullyPaidStatus);
-            myPromise.then(
-              function(result) {
-                  resolve(result);
-              },
-              function(err) {
-                  reject(err);
-              }
-            );
-        });
-    }
-
-
+  static getAClientsLoans(clientId) {
+    return new Promise(function(resolve, reject) {
+      var myPromise = ModelMaster.getAClientsLoans(clientId);
+      myPromise.then(
+        function(result) {
+          resolve(result);
+        },
+        function(err) {
+          reject(err);
+        }
+      );
+    });
+  }
 };

@@ -5,7 +5,6 @@ calls from the client and passes the calls down to the
 "LoanApplicationController" class
 */
 
-
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
@@ -416,6 +415,26 @@ router.post("/register_bad_debt", urlencodedParser, function(
     value_,
     jsonObject_
   );
+
+  myPromise.then(
+    function(result) {
+      var response_object = { results: result };
+      response.send(response_object);
+    },
+    function(err) {
+      response.send("An error occurred");
+      console.log(err);
+    }
+  );
+});
+
+router.post("/get_a_clients_loans", urlencodedParser, function(
+  request,
+  response
+) {
+  var clientId = request.body.clientId;
+
+  var myPromise = LoanApplicationController.getAClientsLoans(clientId);
 
   myPromise.then(
     function(result) {

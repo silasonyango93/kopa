@@ -1093,12 +1093,27 @@ with no WHERE clause(No condition)
     });
   }
 
-
   static searchClientsByAnyParameter(searchParameter) {
     return new Promise(function(resolve, reject) {
       con.query(
-        "SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE ClientFirstName LIKE '%"+searchParameter+"%' OR ClientMiddleName LIKE '%"+searchParameter+"%' OR ClientSurname LIKE '%"+searchParameter+"%' OR ClientNationalId LIKE '%"+searchParameter+"%' OR ClientDOB LIKE '%"+searchParameter+"%' OR ClientPhoneNumber LIKE '%"+searchParameter+"%' \n" +
-        "OR ClientPhysicalAddress LIKE '%"+searchParameter+"%' OR ClientEmail LIKE '%"+searchParameter+"%';",
+        "SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE ClientFirstName LIKE '%" +
+          searchParameter +
+          "%' OR ClientMiddleName LIKE '%" +
+          searchParameter +
+          "%' OR ClientSurname LIKE '%" +
+          searchParameter +
+          "%' OR ClientNationalId LIKE '%" +
+          searchParameter +
+          "%' OR ClientDOB LIKE '%" +
+          searchParameter +
+          "%' OR ClientPhoneNumber LIKE '%" +
+          searchParameter +
+          "%' \n" +
+          "OR ClientPhysicalAddress LIKE '%" +
+          searchParameter +
+          "%' OR ClientEmail LIKE '%" +
+          searchParameter +
+          "%';",
         function(err, result) {
           if (err) {
             reject(err);
@@ -1110,103 +1125,103 @@ with no WHERE clause(No condition)
     });
   }
 
-
   static selectAllFromSystemClientsInnerJoinEmploymentCategories() {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId;", function(
-        err,
-        result,
-        fields
-      ) {
-        if (err) {
-          reject(err);
-        } else {
-          var returned_value_ = result;
-          resolve(returned_value_);
-        }
-      });
-    });
-  }
-
-
-  static getIfClientHasIncompleteLoanWithCurrentCompany(clientId,companyId) {
-    return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM loan_application WHERE ClientId ="+clientId+" AND CompanyId ="+companyId+" AND IsFullyPaid =0;", function(
-        err,
-        result,
-        fields
-      ) {
-        if (err) {
-          reject(err);
-        } else {
-          var returned_value_ = result;
-          resolve(returned_value_);
-        }
-      });
-    });
-  }
-
-
-
-
-  static updateClientLoanStatus(jsonObject,ClientId,CompanyId) {
-    return new Promise(function(resolve, reject) {
       con.query(
-        "UPDATE loan_application SET ? WHERE ClientId ="+ClientId+" AND CompanyId ="+CompanyId+";",
-        jsonObject,
-        function(err) {
+        "SELECT * FROM company_clients INNER JOIN employment_categories ON company_clients.EmploymentCategoryId = employment_categories.EmploymentCategoryId;",
+        function(err, result, fields) {
           if (err) {
             reject(err);
           } else {
-
-          var returned_value_ = {
-            success: true,
-            message: "Record updated succesfully."
-          };
-          resolve(returned_value_);}
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
         }
       );
     });
   }
 
-
-  static getACompaniesPendingLoans(companyId,isFullyPaidStatus) {
+  static getIfClientHasIncompleteLoanWithCurrentCompany(clientId, companyId) {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM loan_application WHERE CompanyId ="+companyId+" AND IsFullyPaid ="+isFullyPaidStatus+";", function(
-        err,
-        result,
-        fields
-      ) {
-        if (err) {
-          reject(err);
-        } else {
-          var returned_value_ = result;
-          resolve(returned_value_);
+      con.query(
+        "SELECT * FROM loan_application WHERE ClientId =" +
+          clientId +
+          " AND CompanyId =" +
+          companyId +
+          " AND IsFullyPaid =0;",
+        function(err, result, fields) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
         }
-      });
+      );
     });
   }
 
+  static updateClientLoanStatus(jsonObject, ClientId, CompanyId) {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "UPDATE loan_application SET ? WHERE ClientId =" +
+          ClientId +
+          " AND CompanyId =" +
+          CompanyId +
+          ";",
+        jsonObject,
+        function(err) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = {
+              success: true,
+              message: "Record updated succesfully."
+            };
+            resolve(returned_value_);
+          }
+        }
+      );
+    });
+  }
 
+  static getACompaniesPendingLoans(companyId, isFullyPaidStatus) {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "SELECT * FROM loan_application WHERE CompanyId =" +
+          companyId +
+          " AND IsFullyPaid =" +
+          isFullyPaidStatus +
+          ";",
+        function(err, result, fields) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
+        }
+      );
+    });
+  }
 
   static getACompaniesSystemUsers(companyId) {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM companies INNER JOIN company_branches ON companies.CompanyId = company_branches.CompanyId INNER JOIN company_system_users ON company_branches.CompanyBranchId = company_system_users.CompanyBranchId WHERE companies.CompanyId ="+companyId+";", function(
-        err,
-        result,
-        fields
-      ) {
-        if (err) {
-          reject(err);
-        } else {
-          var returned_value_ = result;
-          resolve(returned_value_);
+      con.query(
+        "SELECT * FROM companies INNER JOIN company_branches ON companies.CompanyId = company_branches.CompanyId INNER JOIN company_system_users ON company_branches.CompanyBranchId = company_system_users.CompanyBranchId WHERE companies.CompanyId =" +
+          companyId +
+          ";",
+        function(err, result, fields) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
         }
-      });
+      );
     });
   }
-
-
 
   static getAllCompanyOwnersAndTheirDetails() {
     return new Promise(function(resolve, reject) {
@@ -1223,30 +1238,41 @@ with no WHERE clause(No condition)
     });
   }
 
-
-  static getACompaniesClientsWithPendingLoans(companyId,isFullyPaidStatus) {
+  static getACompaniesClientsWithPendingLoans(companyId, isFullyPaidStatus) {
     return new Promise(function(resolve, reject) {
-      con.query("SELECT * FROM company_clients INNER JOIN loan_application ON company_clients.ClientId = loan_application.ClientId INNER JOIN companies ON loan_application.CompanyId = companies.CompanyId INNER JOIN company_branches ON loan_application.CompanyBranchId = company_branches.CompanyBranchId INNER JOIN employment_categories ON loan_application.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE loan_application.CompanyId ="+companyId+" AND loan_application.IsFullyPaid ="+isFullyPaidStatus+";", function(
-        err,
-        result,
-        fields
-      ) {
-        if (err) {
-          reject(err);
-        } else {
-          var returned_value_ = result;
-          resolve(returned_value_);
+      con.query(
+        "SELECT * FROM company_clients INNER JOIN loan_application ON company_clients.ClientId = loan_application.ClientId INNER JOIN companies ON loan_application.CompanyId = companies.CompanyId INNER JOIN company_branches ON loan_application.CompanyBranchId = company_branches.CompanyBranchId INNER JOIN employment_categories ON loan_application.EmploymentCategoryId = employment_categories.EmploymentCategoryId WHERE loan_application.CompanyId =" +
+          companyId +
+          " AND loan_application.IsFullyPaid =" +
+          isFullyPaidStatus +
+          ";",
+        function(err, result, fields) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
         }
-      });
+      );
     });
   }
 
-
-
+  static getAClientsLoans(clientId) {
+    return new Promise(function(resolve, reject) {
+      con.query(
+        "SELECT * FROM company_ownership_groups INNER JOIN companies ON company_ownership_groups.CompanyOwnershipGroupId = companies.CompanyOwnershipGroupId INNER JOIN company_branches ON companies.CompanyId = company_branches.CompanyId INNER JOIN company_system_users ON company_branches.CompanyBranchId = company_system_users.CompanyBranchId INNER JOIN session_logs ON company_system_users.SystemUserId = session_logs.SystemUserId INNER JOIN loan_application ON session_logs.SessionLogId = loan_application.SessionLogId INNER JOIN company_clients ON loan_application.ClientId = company_clients.ClientId WHERE company_clients.ClientId =" +
+          clientId +
+          ";",
+        function(err, result, fields) {
+          if (err) {
+            reject(err);
+          } else {
+            var returned_value_ = result;
+            resolve(returned_value_);
+          }
+        }
+      );
+    });
+  }
 };
-
-
-
-
-
-
